@@ -3,7 +3,7 @@ codeunit 50401 LunchMenuTableMeneger
     [EventSubscriber(ObjectType::Table, DataBase::LunchMenu, 'OnAfterValidateEvent', 'Item No.', true, true)]
     procedure OnAfterValidateItemNo(var Rec: Record LunchMenu; var xRec: Record LunchMenu; CurrFieldNo: Integer)
     var
-        LunchItem: Record Item;
+        LunchItem: Record LunchItem;
     begin
         if not (Rec."Item No." = '') then
         begin

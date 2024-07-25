@@ -4,8 +4,9 @@ page 50401 LunchItemList
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = Item;
+    SourceTable = LunchItem;
     CardPageId = LunchItemCard;
+    
     
     layout
     {
@@ -13,8 +14,12 @@ page 50401 LunchItemList
         {
             repeater(ITemDetails)
             {
-                Caption = 'Item Details';
+                Caption = 'Items Details';
 
+                field("No.";Rec."No.")
+                {
+                    Caption = 'Item No.';
+                }
                 field("Vendor No.";Rec."Vendor No.")
                 {
                     Caption = 'Vendor No.';
@@ -48,12 +53,39 @@ page 50401 LunchItemList
                     Caption = 'Self-Order';
                 }
             }
+            
         }
+        
+        
 
     }
-    trigger OnOpenPage()
-    begin
+
+    
+        // actions
+        // {
+        //     area(Processing)
+        //     {
+        //         action(NewItem)
+        //         {
+        //             ApplicationArea = All;
+        //             Caption = 'New Item';
+        //             Image = NewDocument;
+        //             Promoted = true;
+        //             PromotedCategory = Process;
+        //             PromotedIsBig = true;
+        //             ToolTip = 'Create a new item';
+
+        //             trigger OnAction()
+        //             begin
+        //                 // Open the Item Card page to create a new item
+        //                 PAGE.Run(PAGE::LunchItemCard, Rec);
+        //             end;
+        //         }
+        //     }
+        // }
+
+   
         
-    end;
+   
     
 }

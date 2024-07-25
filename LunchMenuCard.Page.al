@@ -26,7 +26,6 @@ page 50403 LunchMenuCard
                 }
                 field("Item No.";Rec."Item No.")
                 {
-                    LookupPageId = "Item List";
                     
                 }
                 field(Description;Rec.Description)
@@ -34,7 +33,7 @@ page 50403 LunchMenuCard
                     
                     trigger OnValidate()
                     var 
-                        LunchItem: Record Item;
+                        LunchItem: Record LunchItem;
                     begin
                         if not (Rec."Item No." = '') then
                         begin
@@ -52,7 +51,7 @@ page 50403 LunchMenuCard
                 {
                     
                 }
-                field(Identation;Rec.Identation)
+                field("Line Type";Rec."Line Type")
                 {
                     
                 }
@@ -60,17 +59,7 @@ page 50403 LunchMenuCard
                 {
                     
                 }
-                field("Line Type";Rec."Line Type")
-                {
-                    
-                }
-                field("Self-Orderd";Rec."Self-Orderd")
-                {
-                    
-                }
             }
         }
     }
-
-    
 }

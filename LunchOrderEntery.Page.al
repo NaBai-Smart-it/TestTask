@@ -45,21 +45,6 @@ page 50406 LunchOrderEnteryPage
                 field(Status; Rec.Status)
                 {
                 }
-                field(SystemCreatedAt; Rec.SystemCreatedAt)
-                {
-                }
-                field(SystemCreatedBy; Rec.SystemCreatedBy)
-                {
-                }
-                field(SystemId; Rec.SystemId)
-                {
-                }
-                field(SystemModifiedAt; Rec.SystemModifiedAt)
-                {
-                }
-                field(SystemModifiedBy; Rec.SystemModifiedBy)
-                {
-                }
                 field("Vendor No."; Rec."Vendor No.")
                 {
                 }

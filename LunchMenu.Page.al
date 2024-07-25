@@ -1,5 +1,7 @@
-page 50405 LunchOrderMenuList
+page 50405 LunchMenuList
 {
+    Caption = 'Lunch Menu List';
+    UsageCategory = Lists;
     PageType = List;
     ApplicationArea = All;
     SourceTable = LunchMenu;
@@ -17,48 +19,48 @@ page 50405 LunchOrderMenuList
                 IndentationControls = Description;
                 field("Line No.";Rec."Line No.")
                 {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field(Description;Rec.Description)
                 {
                     StyleExpr = BoldTextStyle;
-
                 }
                 field("Menu Date";Rec."Menu Date")
                 {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field("Vendor No.";Rec."Vendor No.")
                 {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field("Item No.";Rec."Item No.")
                 {
-
+                    StyleExpr = BoldTextStyle;
+                    LookupPageId = LunchItemList;
                 }
                 field(Weight;Rec.Weight)
                 {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field(Price;Rec.Price)
                 {
-
-                }
-                field(Identation;Rec.Identation)
-                {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field(Active;Rec.Active)
                 {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field("Line Type";Rec."Line Type")
                 {
-
+                    StyleExpr = BoldTextStyle;
                 }
                 field("Self-Orderd";Rec."Self-Orderd")
                 {
-
+                    StyleExpr = BoldTextStyle;
+                }
+                field("Menu Item Entry No.";Rec."Menu Item Entry No.")
+                {
+                    StyleExpr = BoldTextStyle;
                 }
             }
         }
@@ -70,6 +72,7 @@ page 50405 LunchOrderMenuList
 
     trigger OnAfterGetRecord()
     begin
+        
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
         begin
             BoldTextStyle := 'Strong';
@@ -78,10 +81,9 @@ page 50405 LunchOrderMenuList
         else 
         begin
             BoldTextStyle := '';
-            Rec.Identation := 3;
         end;
 
         IsEditable := Rec.Active;
-        
+
     end;
 }
