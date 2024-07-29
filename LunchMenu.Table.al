@@ -2,7 +2,7 @@ table 50401 LunchMenu
 {
     Caption = 'Lunch Menu';
     DataClassification = CustomerContent;
-    
+
     fields
     {
         field(1; "Vendor No."; Code[20])
@@ -22,6 +22,7 @@ table 50401 LunchMenu
         {
             Caption = 'Item No.';
             TableRelation = LunchItem where("Vendor No." = field("Vendor No."));
+            
         }
         field(5; Description; Text[250])
         {
@@ -84,18 +85,18 @@ table 50401 LunchMenu
         field(14; "Prewies Quantity"; Decimal)
         {
             FieldClass = FlowField;
-            CalcFormula = Sum(LunchOrderEntry.Quantity WHERE ("Menu Item Entry No." = FIELD("Parent Menu Item Entry No.")));
+            CalcFormula = Sum(LunchOrderEntry.Quantity WHERE("Menu Item Entry No." = FIELD("Parent Menu Item Entry No.")));
         }
-        field(15; "Self-Orderd"; Boolean)
+        field(15; "Self-Ordered"; Boolean)
         {
-            Caption = 'Self-Orderd';
+            Caption = 'Self-Ordered';
         }
         field(16; "Parent Menu Item Entry No."; Integer)
         {
             Caption = 'Parent Menu Item Entry No.';
         }
     }
-    
+
     keys
     {
         key(PK; "Vendor No.", "Menu Date", "Line No.")
@@ -106,8 +107,7 @@ table 50401 LunchMenu
 
     trigger OnInsert()
     begin
-        if (Rec."Line Type" = Rec."Line Type"::"Item") then
-        begin
+        if (Rec."Line Type" = Rec."Line Type"::"Item") then begin
             Rec.Identation := 3;
             Rec.Active := true;
         end;
@@ -118,6 +118,7 @@ table 50401 LunchMenu
         LunchOrderEntery: Record LunchOrderEntry;
     begin
         LunchOrderEntery.SetRange(LunchOrderEntery."Menu Item Entry No.", Rec."Menu Item Entry No.");
-        LunchOrderEntery.DeleteAll(true);
+        if not LunchOrderEntery.IsEmpty() then
+            LunchOrderEntery.DeleteAll(true);
     end;
 }

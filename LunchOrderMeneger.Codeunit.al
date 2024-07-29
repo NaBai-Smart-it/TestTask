@@ -4,29 +4,37 @@ codeunit 50400 LunchOrderMeneger
     var
         LunchMenuEnteries: Record LunchMenu;
     begin
-        Record.DeleteAll(false);
+        if not Record.IsEmpty() then
+        begin
+            Record.DeleteAll(false);
+        end;
+        
         LunchMenuEnteries.Reset();
         LunchMenuEnteries.SetRange(LunchMenuEnteries."Menu Date", MenuDate);
         LunchMenuEnteries.SetRange(LunchMenuEnteries."Vendor No.", VendorNo);
 
+        if LunchMenuEnteries.FindSet() then
+            repeat
+                Record.Init();
+                Record."Line No." := LunchMenuEnteries."Line No.";
+                Record.Description := LunchMenuEnteries.Description;
+                Record."Menu Date" := LunchMenuEnteries."Menu Date";
+                Record."Vendor No." := LunchMenuEnteries."Vendor No.";
+                Record."Line Type" := LunchMenuEnteries."Line Type";
+                Record.Weight := LunchMenuEnteries.Weight;
+                Record.Price := LunchMenuEnteries.Price;
+                Record."Item No." := LunchMenuEnteries."Item No.";
+                Record.Active := LunchMenuEnteries.Active;
+                Record."Menu Item Entry No." := LunchMenuEnteries."Menu Item Entry No.";
+                Record.Identation := LunchMenuEnteries.Identation;
+                if Record.Insert(false) then
+                    Message('Inserted');
+                
+            until LunchMenuEnteries.Next() = 0;
 
-        LunchMenuEnteries.FindSet();
-        repeat
-            Record.Init();
-            Record."Line No." := LunchMenuEnteries."Line No.";
-            Record.Description := LunchMenuEnteries.Description;
-            Record."Menu Date" := LunchMenuEnteries."Menu Date";
-            Record."Vendor No." := LunchMenuEnteries."Vendor No.";
-            Record."Line Type" := LunchMenuEnteries."Line Type";
-            Record.Weight := LunchMenuEnteries.Weight;
-            Record.Price := LunchMenuEnteries.Price;
-            Record."Item No." := LunchMenuEnteries."Item No.";
-            Record.Active := LunchMenuEnteries.Active;
-            Record."Menu Item Entry No." := LunchMenuEnteries."Menu Item Entry No.";
-            Record.Identation := LunchMenuEnteries.Identation;
-            Record.Insert(false)
-            
-        until LunchMenuEnteries.Next() = 0;
+            if Record.FindSet() then
+            repeat
+            until Record.Next() = 0;
 
     end;
 
@@ -35,7 +43,6 @@ codeunit 50400 LunchOrderMeneger
         MenuRecoed: Record LunchMenu;
         MaxOrderDate: Date;
     begin
-        MaxOrderDate := DMY2Date(1, 1, 1900);
 
         if MenuRecoed.FindSet() then
         begin

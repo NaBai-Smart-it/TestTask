@@ -5,7 +5,6 @@ page 50400 LunchItemCard
     ApplicationArea = All;
     SourceTable = LunchItem;
     
-    
     layout
     {
         area(Content)
@@ -17,7 +16,7 @@ page 50400 LunchItemCard
                 field("Vendor No.";Rec."Vendor No.")
                 {
                     Caption = 'Vendor No.';
-                    LookupPageId = "Vendor List";
+                    TableRelation = Vendor."No." where(LunchVendor = const(true));
                 }
                 field(Description;Rec.Description)
                 {
@@ -58,5 +57,16 @@ page 50400 LunchItemCard
                 
             }
         }
+        area(factboxes)
+        {
+            part(ItemPicture; ItemPictureFactBox)
+            {
+                ApplicationArea = All;
+                Caption = 'Picture';
+                SubPageLink = "No." = field("No.");
+            }
+        }
     }
+
+    
 }

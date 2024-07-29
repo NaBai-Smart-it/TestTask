@@ -5,13 +5,13 @@ codeunit 50401 LunchMenuTableMeneger
     var
         LunchItem: Record LunchItem;
     begin
-        if not (Rec."Item No." = '') then
+        if (Rec."Item No." <> '') then
         begin
             LunchItem.Get(Rec."Item No.");
             Rec.Description := LunchItem.Description;
             Rec.Weight := LunchItem.Weight;
             Rec.Price := LunchItem.Price;
-            Rec."Self-Orderd" := LunchItem."Self-Order";
+            Rec."Self-Ordered" := LunchItem."Self-Order";
             Rec."Line Type" := Rec."Line Type"::Item;
         end;
     end;

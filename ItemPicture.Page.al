@@ -1,10 +1,8 @@
 
-//This Page doing noting currently, i was trying to display picture of an item in a fact box on a list page and i working on it))
 page 50407 ItemPictureFactBox
 {
-    PageType = ListPart;
+    PageType = CardPart;
     ApplicationArea = All;
-    UsageCategory = Administration;
     SourceTable = LunchItem;
     
     layout
@@ -21,97 +19,107 @@ page 50407 ItemPictureFactBox
     }
 
     
-//     actions
-//     {
-//         area(Processing)
-//         {
-//             action(ImportPicture)
-//             {
-//                 ApplicationArea = All;
-//                 Caption = 'Import';
-//                 Image = Import;
-//                 ToolTip = 'Import a picture file.';
-//                 Visible = HideActions = false;
+    actions
+    {
+        area(Processing)
+        {
+            action(ImportPicture)
+            {
+                ApplicationArea = All;
+                Caption = 'Import';
+                Image = Import;
+                ToolTip = 'Import a picture file.';
+                Visible = HideActions = false;
 
-//                 trigger OnAction()
-//                 begin
-//                     ImportFromDevice();
-//                 end;
-//             }
-//             action(DeletePicture)
-//             {
-//                 ApplicationArea = All;
-//                 Caption = 'Delete';
-//                 Enabled = DeleteExportEnabled;
-//                 Image = Delete;
-//                 ToolTip = 'Delete the record.';
-//                 Visible = HideActions = false;
+                trigger OnAction()
+                begin
+                    ImportFromDevice();
+                end;
+            }
+            action(DeletePicture)
+            {
+                ApplicationArea = All;
+                Caption = 'Delete';
+                Enabled = DeleteExportEnabled;
+                Image = Delete;
+                ToolTip = 'Delete the record.';
+                Visible = HideActions = false;
 
-//                 trigger OnAction()
-//                 begin
-//                     DeleteItemPicture();
-//                 end;
-//             }
-//         }
-//     }
+                trigger OnAction()
+                begin
+                    DeleteItemPicture();
+                end;
+            }
+        }
+    }
 
-//     procedure ImportFromDevice()
-//     var
-//         FileManagement: Codeunit "File Management";
-//         FileName: Text;
-//         ClientFileName: Text;
-//     begin
-//         Rec.Find();
-//         Rec.TestField("No.");
-//         if Rec.Description = '' then
-//             Error(MustSpecifyDescriptionErr);
+    procedure ImportFromDevice()
+    var
+        FileManagement: Codeunit "File Management";
+        FileName: Text;
+        ClientFileName: Text;
+    begin
+        Rec.Find();
+        Rec.TestField("No.");
+        if Rec.Description = '' then
+            Error(MustSpecifyDescriptionErr);
 
-//         if Rec.Picture.Count > 0 then
-//             if not Confirm(OverrideImageQst) then
-//                 Error('');
+        if Rec.Picture.Count > 0 then
+            if not Confirm(OverrideImageQst) then
+                Error('');
 
-//         ClientFileName := '';
-//         FileName := FileManagement.UploadFile(SelectPictureTxt, ClientFileName);
-//         if FileName = '' then
-//             Error('');
+        ClientFileName := '';
+        FileName := FileManagement.UploadFile(SelectPictureTxt, ClientFileName);
+        if FileName = '' then
+            Error('');
 
-//         Clear(Rec.Picture);
-//         Rec.Picture.ImportFile(FileName, ClientFileName);
-//         Rec.Modify(true);
-//         OnImportFromDeviceOnAfterModify(Rec);
+        Clear(Rec.Picture);
+        Rec.Picture.ImportFile(FileName, ClientFileName);
+        Rec.Modify(true);
+        OnImportFromDeviceOnAfterModify(Rec);
+        
+        if FileManagement.DeleteServerFile(FileName) then;
+    end;
 
-//         if FileManagement.DeleteServerFile(FileName) then;
-//     end;
+    procedure DeleteItemPicture()
+        begin
+            Rec.TestField("No.");
 
-// procedure DeleteItemPicture()
-//     begin
-//         Rec.TestField("No.");
+            if not Confirm(DeleteImageQst) then
+                exit;
 
-//         if not Confirm(DeleteImageQst) then
-//             exit;
+            Clear(Rec.Picture);
+            Rec.Modify(true);
 
-//         Clear(Rec.Picture);
-//         Rec.Modify(true);
-
-//         OnAfterDeleteItemPicture(Rec);
-//     end;
+            OnAfterDeleteItemPicture(Rec);
+        end;
     
-//     var
-//         HideActions: Boolean;
-//         DeleteExportEnabled: Boolean;
-//         MustSpecifyDescriptionErr: Label 'You must add a description to the item before you can import a picture.';
-//         OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
+    var
+        HideActions: Boolean;
+        DeleteExportEnabled: Boolean;
+        MustSpecifyDescriptionErr: Label 'You must add a description to the item before you can import a picture.';
+        OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
+        SelectPictureTxt: Label 'Select a picture to upload';
+        DeleteImageQst: Label 'Are you sure you want to delete the picture?';
 
-//     procedure SetHideActions()
-//     begin
-//         HideActions := true;
-//     end;
+    procedure SetHideActions()
+    begin
+        HideActions := true;
+    end;
 
-//     local procedure SetEditableOnPictureActions()
-//     begin
-//         DeleteExportEnabled := Rec.Picture.Count <> 0;
-//     end;
+    local procedure SetEditableOnPictureActions()
+    begin
+        DeleteExportEnabled := Rec.Picture.Count <> 0;
+    end;
 
+    [IntegrationEvent(false, false)]
+    local procedure OnImportFromDeviceOnAfterModify(var Item: Record LunchItem)
+    begin
+    end;
     
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterDeleteItemPicture(var Item: Record LunchItem)
+    begin
+    end;
     
 }

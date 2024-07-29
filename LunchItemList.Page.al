@@ -1,6 +1,6 @@
 page 50401 LunchItemList
 {
-    Caption = 'Lunch Item Lisst';
+    Caption = 'Lunch Item List';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
@@ -32,12 +32,10 @@ page 50401 LunchItemList
                 field(Weight;Rec.Weight)
                 {
                     Caption = 'Weight';
-                    MinValue = 0;
                 }
                 field(Price;Rec.Price)
                 {
                     Caption = 'Price';
-                    MinValue = 0;
                 }
                 field(Picture;Rec.Picture)
                 {
@@ -53,11 +51,22 @@ page 50401 LunchItemList
                     Caption = 'Self-Order';
                 }
             }
-            
         }
-        
-        
-
+        area(factboxes)
+        {
+            part(ItemPicture; ItemPictureFactBox)
+            {
+                ApplicationArea = All;
+                Caption = 'Picture';
+                SubPageLink = "No." = field("No.");
+            }
+            part(ItemInfo; ItemInfoFactBox)
+            {
+                ApplicationArea = All;
+                Caption = 'Item Info Link';
+                SubPageLink = "No." = field("No.");
+            }
+        }
     }
 
     

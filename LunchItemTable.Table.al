@@ -1,5 +1,3 @@
-//I change approach to Lunch items, so i create a separate table insted of Item table extension, 
-//do to a esier inserting proces of a new items on a lookup in a lunch order menu page
 table 50400 LunchItem 
 {
     Caption = 'Lunch Item';
@@ -44,6 +42,7 @@ table 50400 LunchItem
         }
 
     }
+    
     keys
     {
         key(PK; "No.")
@@ -51,6 +50,13 @@ table 50400 LunchItem
             Clustered = true;
         }
     }
+    fieldgroups
+    {
+        fieldgroup(Brick;"No.", Picture)
+        {
+        }
+    }
+
     trigger OnInsert()
     var
         NoSeriesMgt: Codeunit "No. Series";
@@ -73,4 +79,5 @@ table 50400 LunchItem
         until LunchMenuRecord.Next() = 0;
 
     end;
+    
 }

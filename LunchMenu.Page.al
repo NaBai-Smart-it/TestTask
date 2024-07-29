@@ -17,6 +17,9 @@ page 50405 LunchMenuList
                 
                 IndentationColumn = Rec.Identation;
                 IndentationControls = Description;
+                // ShowAsTree = true;
+                // TreeInitialState = ExpandAll;
+                
                 field("Line No.";Rec."Line No.")
                 {
                     StyleExpr = BoldTextStyle;
@@ -54,7 +57,7 @@ page 50405 LunchMenuList
                 {
                     StyleExpr = BoldTextStyle;
                 }
-                field("Self-Orderd";Rec."Self-Orderd")
+                field("Self-Orderd";Rec."Self-Ordered")
                 {
                     StyleExpr = BoldTextStyle;
                 }
@@ -62,6 +65,16 @@ page 50405 LunchMenuList
                 {
                     StyleExpr = BoldTextStyle;
                 }
+            }
+            
+        }
+        area(factboxes)
+        {
+            part(ItemPicture; ItemPictureFactBox)
+            {
+                ApplicationArea = All;
+                Caption = 'Picture';
+                SubPageLink = "No." = field("Item No.");
             }
         }
     }
