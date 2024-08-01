@@ -1,8 +1,8 @@
-table 50400 LunchItem 
+table 50400 LunchItem
 {
     Caption = 'Lunch Item';
     LookupPageId = LunchItemCard;
-    
+
     fields
     {
         field(1; "No."; Code[20])
@@ -11,22 +11,26 @@ table 50400 LunchItem
         }
         field(2; "Vendor No."; Code[20])
         {
+            NotBlank = true;
             Caption = 'Veendor No.';
             TableRelation = Vendor."No." where(LunchVendor = const(true));
         }
         field(3; Description; Text[250])
         {
+            NotBlank = true;
             Caption = 'Description';
         }
         field(4; Weight; Decimal)
         {
             Caption = 'Weight';
             MinValue = 0;
+            InitValue = 0;
         }
         field(5; Price; Decimal)
         {
             Caption = 'Price';
             MinValue = 0;
+            InitValue = 0;
         }
         field(6; "Info Link"; Text[250])
         {
@@ -35,14 +39,45 @@ table 50400 LunchItem
         field(7; "Self-Order"; Boolean)
         {
             Caption = 'Self-Order';
+            InitValue = true;////////
         }
         field(8; Picture; MediaSet)
         {
             Caption = 'Picture';
         }
+        field(9; "Fats (g)"; Decimal)
+        {
+            Caption = 'Fats (g)';
+            MinValue = 0;
+            InitValue = 0;
+        }
+        field(10; "Carbs (g)"; Decimal)
+        {
+            Caption = 'Carbs (g)';
+            MinValue = 0;
+            InitValue = 0;
+        }
+        field(11; "Protein (g)"; Decimal)
+        {
+            Caption = 'Protein (g)';
+            MinValue = 0;
+            InitValue = 0;
+        }
+        field(12; "Fiber (g)"; Decimal)
+        {
+            Caption = 'Fiber (g)';
+            MinValue = 0;
+            InitValue = 0;
+        }
+        field(13; "Calories"; Decimal)
+        {
+            Caption = 'Calories';
+            MinValue = 0;
+            InitValue = 0;
+        }
 
     }
-    
+
     keys
     {
         key(PK; "No.")
@@ -50,9 +85,10 @@ table 50400 LunchItem
             Clustered = true;
         }
     }
+
     fieldgroups
     {
-        fieldgroup(Brick;"No.", Picture)
+        fieldgroup(Brick; "No.", Description, Weight, "Vendor No.", Price, Picture)
         {
         }
     }
@@ -60,24 +96,18 @@ table 50400 LunchItem
     trigger OnInsert()
     var
         NoSeriesMgt: Codeunit "No. Series";
+        LunchItemSetup : Record LunchItemSetup;
     begin
         if ("No." = '') then
-            Rec."No." := NoSeriesMgt.GetNextNo('LUNCHITEMNO', 0D);
-        
+            Rec."No." := NoSeriesMgt.GetNextNo(LunchItemSetup."No. Series Code", LunchItemSetup."Usage Date");
     end;
 
     trigger OnDelete()
     var
         LunchMenuRecord: Record LunchMenu;
     begin
-        LunchMenuRecord.FindSet();
-        repeat
-            if LunchMenuRecord."Item No." = Rec."No." then
-            begin
-                LunchMenuRecord.Active := false;
-            end;
-        until LunchMenuRecord.Next() = 0;
-
+        LunchMenuRecord.SetRange(LunchMenuRecord."Item No.", Rec."No.");
+        LunchMenuRecord.ModifyAll(LunchMenuRecord.Active, false);
     end;
-    
+
 }

@@ -7,10 +7,4 @@ tableextension 50401 LunchVendor extends Vendor
             Caption = 'Lunch Vendor';
         }
     }
-
-    trigger OnAfterInsert()
-    begin
-        Rec.LunchVendor := true;
-    end;
-
 }

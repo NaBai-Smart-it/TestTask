@@ -76,7 +76,6 @@ page 50407 ItemPictureFactBox
         Clear(Rec.Picture);
         Rec.Picture.ImportFile(FileName, ClientFileName);
         Rec.Modify(true);
-        OnImportFromDeviceOnAfterModify(Rec);
         
         if FileManagement.DeleteServerFile(FileName) then;
     end;
@@ -91,7 +90,6 @@ page 50407 ItemPictureFactBox
             Clear(Rec.Picture);
             Rec.Modify(true);
 
-            OnAfterDeleteItemPicture(Rec);
         end;
     
     var
@@ -110,16 +108,6 @@ page 50407 ItemPictureFactBox
     local procedure SetEditableOnPictureActions()
     begin
         DeleteExportEnabled := Rec.Picture.Count <> 0;
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnImportFromDeviceOnAfterModify(var Item: Record LunchItem)
-    begin
-    end;
-    
-    [IntegrationEvent(false, false)]
-    local procedure OnAfterDeleteItemPicture(var Item: Record LunchItem)
-    begin
     end;
     
 }

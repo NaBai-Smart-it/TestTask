@@ -20,11 +20,11 @@ page 50405 LunchMenuList
                 // ShowAsTree = true;
                 // TreeInitialState = ExpandAll;
                 
-                field("Line No.";Rec."Line No.")
+                field(Description;Rec.Description)
                 {
                     StyleExpr = BoldTextStyle;
                 }
-                field(Description;Rec.Description)
+                field("Line No.";Rec."Line No.")
                 {
                     StyleExpr = BoldTextStyle;
                 }
@@ -66,7 +66,6 @@ page 50405 LunchMenuList
                     StyleExpr = BoldTextStyle;
                 }
             }
-            
         }
         area(factboxes)
         {
@@ -75,6 +74,17 @@ page 50405 LunchMenuList
                 ApplicationArea = All;
                 Caption = 'Picture';
                 SubPageLink = "No." = field("Item No.");
+            }
+            part(ItemStats; NutritionsPieChart)
+            {
+                ApplicationArea = All;
+                Caption = 'Stats';
+                SubPageLink = "No." = field("Item No.");
+                UpdatePropagation = Both;
+            }
+            systempart(Control1900383207; Links)
+            {
+                ApplicationArea = All;
             }
         }
     }
@@ -85,7 +95,6 @@ page 50405 LunchMenuList
 
     trigger OnAfterGetRecord()
     begin
-        
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
         begin
             BoldTextStyle := 'Strong';
@@ -97,6 +106,11 @@ page 50405 LunchMenuList
         end;
 
         IsEditable := Rec.Active;
-
+        //asc for a better way
+        //CurrPage.Update(true);
     end;
+
+    
+
+
 }

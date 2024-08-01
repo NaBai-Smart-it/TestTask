@@ -15,11 +15,13 @@ page 50400 LunchItemCard
 
                 field("Vendor No.";Rec."Vendor No.")
                 {
+                    ShowMandatory = true;
                     Caption = 'Vendor No.';
                     TableRelation = Vendor."No." where(LunchVendor = const(true));
                 }
                 field(Description;Rec.Description)
                 {
+                    ShowMandatory = true;
                     Caption = 'Description';
                 }
                 field(Weight;Rec.Weight)
@@ -56,6 +58,33 @@ page 50400 LunchItemCard
                 }
                 
             }
+
+            group(Nutritions)
+            {
+                Caption = 'Nutritions info (per 100g)';
+
+                field("Fats (g)";Rec."Fats (g)")
+                {
+
+                }
+                field("Carbs (g)";Rec."Carbs (g)")
+                {
+
+                }
+                field("Fiber (g)";Rec."Fiber (g)")
+                {
+
+                }
+                field("Protein (g)";Rec."Protein (g)")
+                {
+
+                }
+                field(Calories;Rec.Calories)
+                {
+                    
+                }
+
+            }
         }
         area(factboxes)
         {
@@ -67,6 +96,7 @@ page 50400 LunchItemCard
             }
         }
     }
+
 
     
 }

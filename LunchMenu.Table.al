@@ -2,6 +2,8 @@ table 50401 LunchMenu
 {
     Caption = 'Lunch Menu';
     DataClassification = CustomerContent;
+    ///DrillDownPageId
+    //LookupPageId
 
     fields
     {
@@ -9,14 +11,17 @@ table 50401 LunchMenu
         {
             Caption = 'Vendor No.';
             TableRelation = Vendor."No." where(LunchVendor = const(true));
+            
         }
         field(2; "Menu Date"; Date)
         {
             Caption = 'Menu Date';
+            NotBlank = true;
         }
         field(3; "Line No."; Integer)
         {
             Caption = 'Line No.';
+            NotBlank = true;
         }
         field(4; "Item No."; Code[20])
         {
@@ -27,6 +32,7 @@ table 50401 LunchMenu
         field(5; Description; Text[250])
         {
             Caption = 'Description';
+            NotBlank = true;
         }
         field(6; Weight; Decimal)
         {
@@ -81,10 +87,17 @@ table 50401 LunchMenu
         field(13; "Line Type"; Enum LineType)
         {
             Caption = 'Line Type';
+            NotBlank = true;
+
+            trigger OnValidate()
+            begin
+                TestField(Rec."Line Type");
+            end;
         }
         field(14; "Prewies Quantity"; Decimal)
         {
             FieldClass = FlowField;
+            Editable = false;
             CalcFormula = Sum(LunchOrderEntry.Quantity WHERE("Menu Item Entry No." = FIELD("Parent Menu Item Entry No.")));
         }
         field(15; "Self-Ordered"; Boolean)
@@ -104,14 +117,6 @@ table 50401 LunchMenu
             Clustered = true;
         }
     }
-
-    trigger OnInsert()
-    begin
-        if (Rec."Line Type" = Rec."Line Type"::"Item") then begin
-            Rec.Identation := 3;
-            Rec.Active := true;
-        end;
-    end;
 
     trigger OnDelete()
     var

@@ -60,41 +60,22 @@ page 50401 LunchItemList
                 Caption = 'Picture';
                 SubPageLink = "No." = field("No.");
             }
-            part(ItemInfo; ItemInfoFactBox)
+            part(ItemStats; NutritionsPieChart)
             {
                 ApplicationArea = All;
-                Caption = 'Item Info Link';
+                Caption = 'Stats';
                 SubPageLink = "No." = field("No.");
+                UpdatePropagation = Both;
+            }
+            systempart(Control1900383207; Links)
+            {
+                ApplicationArea = All;
             }
         }
     }
 
-    
-        // actions
-        // {
-        //     area(Processing)
-        //     {
-        //         action(NewItem)
-        //         {
-        //             ApplicationArea = All;
-        //             Caption = 'New Item';
-        //             Image = NewDocument;
-        //             Promoted = true;
-        //             PromotedCategory = Process;
-        //             PromotedIsBig = true;
-        //             ToolTip = 'Create a new item';
-
-        //             trigger OnAction()
-        //             begin
-        //                 // Open the Item Card page to create a new item
-        //                 PAGE.Run(PAGE::LunchItemCard, Rec);
-        //             end;
-        //         }
-        //     }
-        // }
-
-   
-        
-   
-    
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        Rec."Self-Order" := false;
+    end;
 }

@@ -8,10 +8,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4262982587 - Field 2821152952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Calories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4262982587 - Field 3490693569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carbs (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Carbs (g) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4262982587 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4262982587 - Field 2240044042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fats (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Fats (g) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4262982587 - Field 741696824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fiber (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Fiber (g) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4262982587 - Field 663614874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Info link</source>
@@ -33,6 +53,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Price - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4262982587 - Field 236377863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Protein (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Protein (g) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4262982587 - Field 4001937001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Self-Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -47,6 +72,26 @@
           <source>Weight</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3865297666 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItemSetup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3865297666 - Field 2354159539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItemSetup - Field No. Series Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3865297666 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItemSetup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3865297666 - Field 2663349555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItemSetup - Field Usage Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4210009825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Menu</source>
@@ -193,70 +238,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchOrderEntry - Field Vendor No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 180380182" size-unit="char" translate="yes" xml:space="preserve">
-          <source>All Files (*.*)|*.*</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType AllFilesDescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 3556479000" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Excel Files (*.xlsx;*.xls)|*.xlsx;*.xls</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType Excel2007FileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 1666266323" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Excel Files (*.xls)|*.xls</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType ExcelFileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 909187529" size-unit="char" translate="yes" xml:space="preserve">
-          <source>HTM Files (*.htm)|*.htm</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType HTMFileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 2401164824" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SQL Report Builder (*.rdl;*.rdlc)|*.rdl;*.rdlc</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType RDLFileTypeTok</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 1317010009" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify a file filter and an extension filter when using this function.</source>
+        <trans-unit id="Codeunit 2712370214 - Method 347018009 - NamedType 160013920" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No such Item in a datbase, pleas try again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType SingleFilterErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit LunchMenuTableMeneger - Method OnAfterValidateItemNo - NamedType NoSuchItemText</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 3377297418" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Text Files (*.txt)|*.txt</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType TXTFileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 1338437953" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unsupported file extension (.%1). The supported file extensions are (%2).</source>
+        <trans-unit id="Page 3016643917 - Control 2821152952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calories</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType UnsupportedFileExtErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 2433838127" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Word Files (*.docx;*.doc)|*.docx;*.doc</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType Word2007FileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 3419126012" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Word Files (*.doc)|*.doc</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType WordFileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 796843593" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XML Files (*.xml)|*.xml</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType XMLFileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 3902698811" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XSD Files (*.xsd)|*.xsd</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType XSDFileType</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1054174079 - NamedType 4078122831" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XSLT Files (*.xslt)|*.xslt</source>
-          <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MyFileMenager - NamedType XSLTFileType</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CircleGraphFactBox - Control Calories - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 537590242 - Control 663614874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Info link</source>
@@ -358,6 +348,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Weight - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3644934735 - Control 864860101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nutritions info (per 100g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Nutritions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3644934735 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -413,15 +408,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control Weight - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 131924453 - Control 2874153693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Item Info Link</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control ItemInfo - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 131924453 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control ItemPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 131924453 - Control 1013774208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control ItemStats - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3865297666 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lunch Item Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemSetup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2338493117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Menu Card</source>
@@ -432,6 +432,11 @@
           <source>Lunch Menu List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2666153063 - Control 2874153693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Info Link</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Control ItemInfo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2666153063 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
@@ -448,6 +453,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Method OnQueryClosePage - NamedType ConfirmationOrderText</note>
         </trans-unit>
+        <trans-unit id="Page 87030990 - Control 2874153693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Info Link</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Control ItemInfo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 87030990 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -458,15 +468,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Action ComposeMenu - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 87030990 - Action 4001937001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Self-Order</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Action Self-Order - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2601119804 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Order Enteries</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrderEnteryPage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2732587232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lunch Vendor Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchVendorCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 265094886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lunch Wendor List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchVendorList - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2232096380 - Field 2232096380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
           <source>Lunch Vendor</source>

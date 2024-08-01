@@ -17,57 +17,54 @@ page 50403 LunchMenuCard
                 }
                 field("Menu Date"; Rec."Menu Date")
                 {
-
+                    ShowMandatory = true;
                 }
                 field("Vendor No."; Rec."Vendor No.")
                 {
+                    ShowMandatory = true;
                     LookupPageId = "Vendor List";
-                }
-                field("Item No."; Rec."Item No.")
-                {
-
-                }
-                field(Description; Rec.Description)
-                {
-
-                    trigger OnValidate()
-                    var
-                        LunchItem: Record LunchItem;
-                    begin
-                        if (Rec."Item No." <> '') then begin
-                            LunchItem.Reset();
-                            LunchItem.Get(Rec."Item No.");
-                            Rec.Description := LunchItem."Description";
-                        end;
-                        // two lines
-                    end;
-                }
-                field(Weight; Rec.Weight)
-                {
-
-                }
-                field(Price; Rec.Price)
-                {
-
                 }
                 field("Line Type"; Rec."Line Type")
                 {
-
+                    ShowMandatory = true;
+                    trigger OnValidate()
+                    begin
+                        if Rec."Line Type" = Rec."Line Type"::Item then
+                            IsInsertingItemLine := true
+                        else
+                            IsInsertingItemLine := false;
+                    end;
+                }
+                field("Item No."; Rec."Item No.")
+                {
+                    Editable = IsInsertingItemLine;
+                }
+                field(Description; Rec.Description)
+                {
+                    ShowMandatory = true;
+                }
+                field(Weight; Rec.Weight)
+                {
+                    Editable = IsInsertingItemLine;
+                }
+                field(Price; Rec.Price)
+                {
+                    Editable = IsInsertingItemLine;
                 }
             }
         }
     }
 
-    
+
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
         Rec."Self-Ordered" := RecordIsSelfOrder;
-        Message('Inserting -> %1', Rec."Self-Ordered");
     end;
 
     var
-    RecordIsSelfOrder: Boolean;
+        RecordIsSelfOrder: Boolean;
+        IsInsertingItemLine: Boolean;
 
     procedure SetSelfOrder(SelfOrderStatus: Boolean)
     begin

@@ -32,27 +32,19 @@ codeunit 50400 LunchOrderMeneger
                 
             until LunchMenuEnteries.Next() = 0;
 
-            if Record.FindSet() then
-            repeat
-            until Record.Next() = 0;
+            
 
     end;
 
     procedure GetMaxMenuDate(): Date
     var
-        MenuRecoed: Record LunchMenu;
+        MenuRecord: Record LunchMenu;
         MaxOrderDate: Date;
     begin
-
-        if MenuRecoed.FindSet() then
-        begin
-            repeat
-                if MenuRecoed."Menu Date" > MaxOrderDate then
-                begin
-                    MaxOrderDate := MenuRecoed."Menu Date";
-                end;
-            until MenuRecoed.Next() = 0;
-        end;
+        MenuRecord.SetCurrentKey(MenuRecord."Menu Date");
+        MenuRecord.Ascending(false);
+        if MenuRecord.FindFirst() then
+            MaxOrderDate := MenuRecord."Menu Date";
 
         exit(MaxOrderDate);
     end;
