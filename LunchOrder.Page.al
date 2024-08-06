@@ -50,6 +50,7 @@ page 50402 LunchOrder
                 field("Item No.";Rec."Item No.")
                 {
                     StyleExpr = BoldTextStyle;
+                    Editable = false;
                 }
                 field(Weight;Rec.Weight)
                 {
@@ -90,7 +91,7 @@ page 50402 LunchOrder
             part(ItemStats; NutritionsPieChart)
             {
                 ApplicationArea = All;
-                Caption = 'Stats';
+                Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("Item No.");
                 UpdatePropagation = Both;
             }
@@ -124,7 +125,7 @@ page 50402 LunchOrder
 
     trigger OnOpenPage()
     var
-        LunchOrderCodeunit : Codeunit LunchOrderMeneger;
+        LunchOrderCodeunit : Codeunit LunchOrderMenger;
     begin
         MenuDate := LunchOrderCodeunit.GetMaxMenuDate();
     end;
@@ -134,6 +135,7 @@ page 50402 LunchOrder
         EndOfOperation: Boolean;
         ConfirmationOrderText: Label 'Confirm Order?';
         LunchOrderEntery: Record LunchOrderEntry;
+        LunchOrderMeneger : Codeunit LunchOrderMenger;
     begin
         // CloseAction - OK - Confirm Order?
         // CloseAction - Cancel - Exit without saving the changes?
@@ -155,8 +157,9 @@ page 50402 LunchOrder
                         if not LunchOrderEntery.FindFirst() then 
                         begin
                             LunchOrderEntery.Init();
-                            LunchOrderEntery.Validate(LunchOrderEntery."Entry No.", (LunchOrderEntery."Entry No." + 1));
+                            LunchOrderEntery.Validate(LunchOrderEntery."Entry No.", LunchOrderMeneger.GetNextEntryNo());
                             AssignValues(LunchOrderEntery, Rec);
+                            Message('Id -> %1', LunchOrderEntery."Entry No.");
                             LunchOrderEntery.Validate(Status, LunchOrderEntery.Status::Created);
                             if(LunchOrderEntery.Insert(true)) then
                                 Message('Record %1 inserted', Rec.Description)
@@ -192,7 +195,7 @@ page 50402 LunchOrder
     
     procedure PopulateTable()
     var
-        LunchOrderCodeunit: Codeunit LunchOrderMeneger;
+        LunchOrderCodeunit: Codeunit LunchOrderMenger;
     begin
         LunchOrderCodeunit.PopulateTempLunchMenuTable(VendorNo, MenuDate, Rec);
         CurrPage.Update(false);
@@ -200,7 +203,7 @@ page 50402 LunchOrder
     
     trigger OnAfterGetRecord()
     var 
-        LunchOrderCodeunit: Codeunit LunchOrderMeneger;
+        LunchOrderCodeunit: Codeunit LunchOrderMenger;
     begin
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
             BoldTextStyle := 'Strong'

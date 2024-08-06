@@ -9,8 +9,9 @@ page 50403 LunchMenuCard
     {
         area(Content)
         {
-            group(GroupName)
+            group("Lunch Menu")
             {
+                Caption = 'Lunch Menu';
                 field("Line No."; Rec."Line No.")
                 {
 
@@ -57,17 +58,8 @@ page 50403 LunchMenuCard
 
 
 
-    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    begin
-        Rec."Self-Ordered" := RecordIsSelfOrder;
-    end;
-
     var
         RecordIsSelfOrder: Boolean;
         IsInsertingItemLine: Boolean;
 
-    procedure SetSelfOrder(SelfOrderStatus: Boolean)
-    begin
-        RecordIsSelfOrder := SelfOrderStatus;
-    end;
 }

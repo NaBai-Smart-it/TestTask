@@ -1,4 +1,4 @@
-codeunit 50400 LunchOrderMeneger
+codeunit 50400 LunchOrderMenger
 {
     procedure PopulateTempLunchMenuTable(VendorNo: Code[20]; MenuDate: Date; var Record: Record LunchMenu temporary)
     var
@@ -27,8 +27,7 @@ codeunit 50400 LunchOrderMeneger
                 Record.Active := LunchMenuEnteries.Active;
                 Record."Menu Item Entry No." := LunchMenuEnteries."Menu Item Entry No.";
                 Record.Identation := LunchMenuEnteries.Identation;
-                if Record.Insert(false) then
-                    Message('Inserted');
+                Record.Insert(false)
                 
             until LunchMenuEnteries.Next() = 0;
 
@@ -47,6 +46,19 @@ codeunit 50400 LunchOrderMeneger
             MaxOrderDate := MenuRecord."Menu Date";
 
         exit(MaxOrderDate);
+    end;
+
+    procedure GetNextEntryNo() : Integer
+    var
+        LunchOrderEnteries : Record LunchOrderEntry;
+    begin
+        LunchOrderEnteries.SetCurrentKey("Entry No.");
+        LunchOrderEnteries.Ascending(false);
+        if LunchOrderEnteries.FindFirst() then
+            begin
+                exit(LunchOrderEnteries."Entry No." + 1);
+            end;
+        exit(1);
     end;
 
 

@@ -63,7 +63,7 @@ page 50401 LunchItemList
             part(ItemStats; NutritionsPieChart)
             {
                 ApplicationArea = All;
-                Caption = 'Stats';
+                Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("No.");
                 UpdatePropagation = Both;
             }

@@ -12,8 +12,9 @@ page 50405 LunchMenuList
     {
         area(Content)
         {
-            repeater(GroupName)
+            repeater("Lunch Menu")
             {
+                Caption = 'Lunch Menu';
                 
                 IndentationColumn = Rec.Identation;
                 IndentationControls = Description;
@@ -78,9 +79,8 @@ page 50405 LunchMenuList
             part(ItemStats; NutritionsPieChart)
             {
                 ApplicationArea = All;
-                Caption = 'Stats';
+                Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("Item No.");
-                UpdatePropagation = Both;
             }
             systempart(Control1900383207; Links)
             {
@@ -106,8 +106,6 @@ page 50405 LunchMenuList
         end;
 
         IsEditable := Rec.Active;
-        //asc for a better way
-        //CurrPage.Update(true);
     end;
 
     

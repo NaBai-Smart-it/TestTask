@@ -1,4 +1,4 @@
-codeunit 50401 LunchMenuTableMeneger
+codeunit 50401 LunchMenuTableMenger
 {
     [EventSubscriber(ObjectType::Table, DataBase::LunchMenu, 'OnAfterValidateEvent', 'Item No.', true, true)]
     procedure OnAfterValidateItemNo(var Rec: Record LunchMenu; var xRec: Record LunchMenu; CurrFieldNo: Integer)
@@ -33,6 +33,7 @@ codeunit 50401 LunchMenuTableMeneger
             Rec."Item No." := '';
             Rec.Weight := 0;
             Rec.Price := 0;
+            Rec.Active := false;
         end
         else
             Rec.Identation := 3;

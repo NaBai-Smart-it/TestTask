@@ -5,7 +5,7 @@ page 50406 LunchOrderEnteryPage
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = LunchOrderEntry;
-    Editable = false;
+   //Editable = false;
     
     layout
     {

@@ -238,20 +238,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchOrderEntry - Field Vendor No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2712370214 - Method 347018009 - NamedType 160013920" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 2182670849 - Method 347018009 - NamedType 160013920" size-unit="char" translate="yes" xml:space="preserve">
           <source>No such Item in a datbase, pleas try again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit LunchMenuTableMeneger - Method OnAfterValidateItemNo - NamedType NoSuchItemText</note>
-        </trans-unit>
-        <trans-unit id="Page 3016643917 - Control 2821152952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Calories</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page CircleGraphFactBox - Control Calories - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 537590242 - Control 663614874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Info link</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page ItemInfoFactBox - Control Info Link - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit LunchMenuTableMenger - Method OnAfterValidateItemNo - NamedType NoSuchItemText</note>
         </trans-unit>
         <trans-unit id="Page 479372480 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure you want to delete the picture?</source>
@@ -353,6 +343,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Nutritions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3644934735 - Control 2821152952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Calories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3644934735 - Control 3490693569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carbs (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Carbs (g) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3644934735 - Control 2240044042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fats (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Fats (g) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3644934735 - Control 741696824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fiber (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Fiber (g) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3644934735 - Control 236377863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Protein (g)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Protein (g) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3644934735 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -414,7 +429,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control ItemPicture - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 131924453 - Control 1013774208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Stats</source>
+          <source>Nutritions Info</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control ItemStats - Property Caption</note>
         </trans-unit>
@@ -428,20 +443,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2338493117 - Control 124610185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lunch Menu</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuCard - Control Lunch Menu - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2666153063 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Menu List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2666153063 - Control 2874153693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Item Info Link</source>
+        <trans-unit id="Page 2666153063 - Control 124610185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lunch Menu</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Control ItemInfo - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Control Lunch Menu - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2666153063 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Control ItemPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2666153063 - Control 1013774208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nutritions Info</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchMenuList - Control ItemStats - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 87030990 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Order</source>
@@ -453,15 +478,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Method OnQueryClosePage - NamedType ConfirmationOrderText</note>
         </trans-unit>
-        <trans-unit id="Page 87030990 - Control 2874153693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Item Info Link</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Control ItemInfo - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 87030990 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Control ItemPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 87030990 - Control 1013774208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nutritions Info</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Control ItemStats - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 87030990 - Action 1242500501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Compose Menu</source>
@@ -482,6 +507,11 @@
           <source>Lunch Wendor List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchVendorList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 827044829 - Control 2821152952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page NutritionsPieChart - Control Calories - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2232096380 - Field 2232096380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
           <source>Lunch Vendor</source>
