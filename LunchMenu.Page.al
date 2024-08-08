@@ -18,8 +18,6 @@ page 50405 LunchMenuList
                 
                 IndentationColumn = Rec.Identation;
                 IndentationControls = Description;
-                // ShowAsTree = true;
-                // TreeInitialState = ExpandAll;
                 
                 field(Description;Rec.Description)
                 {
@@ -104,8 +102,6 @@ page 50405 LunchMenuList
         begin
             BoldTextStyle := '';
         end;
-
-        IsEditable := Rec.Active;
     end;
 
     

@@ -498,6 +498,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrderEnteryPage - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2601119804 - Action 1424458285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send To Vendor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrderEnteryPage - Action SendToVendor - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2732587232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Vendor Card</source>
           <note from="Developer" annotates="general" priority="2"></note>

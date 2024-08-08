@@ -5,7 +5,7 @@ page 50406 LunchOrderEnteryPage
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = LunchOrderEntry;
-   //Editable = false;
+    Editable = false;
     
     layout
     {
@@ -49,8 +49,35 @@ page 50406 LunchOrderEnteryPage
                 {
                 }
             }
-
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(SendToVendor)
+            {
+                Caption = 'Send To Vendor';
+                Image = SendTo;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                begin
+                    SendToVendorSelected();
+                end;
+            }
+        }
+    }
+
+    procedure SendToVendorSelected()
+    var
+        SelectedLunchOrderEnteries: Record LunchOrderEntry;
+    begin
+        CurrPage.SetSelectionFilter(SelectedLunchOrderEnteries);
+
+        SelectedLunchOrderEnteries.ModifyAll(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::"Sent to Vendor", true);
+    end;
     
 }

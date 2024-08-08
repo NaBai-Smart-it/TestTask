@@ -2,8 +2,6 @@ table 50401 LunchMenu
 {
     Caption = 'Lunch Menu';
     DataClassification = CustomerContent;
-    ///DrillDownPageId
-    //LookupPageId
 
     fields
     {
@@ -38,24 +36,10 @@ table 50401 LunchMenu
         {
             Caption = 'Weight';
             MinValue = 0;
-            trigger OnValidate()
-            var
-                LunchItemTable: Record LunchItem;
-            begin
-                if not (Rec."Item No." = '') then
-                    rec.Weight := LunchItemTable.Weight;
-            end;
         }
         field(7; Price; Decimal)
         {
             Caption = 'Price';
-            trigger OnValidate()
-            var
-                LunchItemTable: Record LunchItem;
-            begin
-                if not (Rec."Item No." = '') then
-                    rec.Price := LunchItemTable.Price;
-            end;
         }
         field(8; Identation; Integer)
         {

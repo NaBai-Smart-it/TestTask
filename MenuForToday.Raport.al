@@ -18,7 +18,7 @@ report 50400 MenuForToday
             column(ItemNo_LunchMenu; "Item No.")
             {
             }
-            column(Description;Description)
+            column(Description; Description)
             {
             }
             column(Price_LunchMenu; Price)
@@ -28,10 +28,5 @@ report 50400 MenuForToday
             {
             }
         }
-    }
-    
-    requestpage
-    {
-        
     }
 }

@@ -7,7 +7,6 @@ page 50401 LunchItemList
     SourceTable = LunchItem;
     CardPageId = LunchItemCard;
     
-    
     layout
     {
         area(Content)
@@ -74,8 +73,5 @@ page 50401 LunchItemList
         }
     }
 
-    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    begin
-        Rec."Self-Order" := false;
-    end;
+    
 }

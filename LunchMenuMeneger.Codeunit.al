@@ -28,17 +28,14 @@ codeunit 50401 LunchMenuTableMenger
     var
         LunchItem: Record LunchItem;
     begin
-        if (Rec."Line Type" = Rec."Line Type"::"Group Heading") then
-        begin
+        if (Rec."Line Type" = Rec."Line Type"::"Group Heading") then begin
             Rec."Item No." := '';
             Rec.Weight := 0;
             Rec.Price := 0;
             Rec.Active := false;
-        end
-        else
+        end else begin
             Rec.Identation := 3;
             Rec.Active := true;
+        end;
     end;
-
-    
 }

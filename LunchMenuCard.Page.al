@@ -59,7 +59,6 @@ page 50403 LunchMenuCard
 
 
     var
-        RecordIsSelfOrder: Boolean;
         IsInsertingItemLine: Boolean;
 
 }

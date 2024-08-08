@@ -159,7 +159,6 @@ page 50402 LunchOrder
                             LunchOrderEntery.Init();
                             LunchOrderEntery.Validate(LunchOrderEntery."Entry No.", LunchOrderMeneger.GetNextEntryNo());
                             AssignValues(LunchOrderEntery, Rec);
-                            Message('Id -> %1', LunchOrderEntery."Entry No.");
                             LunchOrderEntery.Validate(Status, LunchOrderEntery.Status::Created);
                             if(LunchOrderEntery.Insert(true)) then
                                 Message('Record %1 inserted', Rec.Description)
