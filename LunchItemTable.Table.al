@@ -36,11 +36,6 @@ table 50400 LunchItem
         {
             Caption = 'Info link';
         }
-        field(7; "Self-Order"; Boolean)
-        {
-            Caption = 'Self-Order';
-            InitValue = true;////////
-        }
         field(8; Picture; MediaSet)
         {
             Caption = 'Picture';
@@ -96,10 +91,13 @@ table 50400 LunchItem
     trigger OnInsert()
     var
         NoSeriesMgt: Codeunit "No. Series";
-        LunchItemSetup : Record LunchItemSetup;
+        LunchItemSetup: Record LunchItemSetup;
     begin
-        if ("No." = '') then
+        if ("No." = '') then begin
+            LunchItemSetup.FindFirst();
             Rec."No." := NoSeriesMgt.GetNextNo(LunchItemSetup."No. Series Code", LunchItemSetup."Usage Date");
+        end;
+            
     end;
 
     trigger OnDelete()
@@ -107,7 +105,8 @@ table 50400 LunchItem
         LunchMenuRecord: Record LunchMenu;
     begin
         LunchMenuRecord.SetRange(LunchMenuRecord."Item No.", Rec."No.");
-        LunchMenuRecord.ModifyAll(LunchMenuRecord.Active, false);
+        if not LunchMenuRecord.IsEmpty() then
+            LunchMenuRecord.ModifyAll(LunchMenuRecord.Active, false);
     end;
 
 }

@@ -30,7 +30,7 @@ page 50407 ItemPictureFactBox
                 Image = Import;
                 ToolTip = 'Import a picture file.';
                 Visible = HideActions = false;
-
+                
                 trigger OnAction()
                 begin
                     ImportFromDevice();
@@ -53,6 +53,10 @@ page 50407 ItemPictureFactBox
         }
     }
 
+    trigger OnAfterGetCurrRecord()
+    begin
+        SetEditableOnPictureActions();
+    end;
     procedure ImportFromDevice()
     var
         FileManagement: Codeunit "File Management";

@@ -5,7 +5,7 @@ page 50406 LunchOrderEnteryPage
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = LunchOrderEntry;
-    Editable = false;
+    // Editable = false;
     
     layout
     {
@@ -76,8 +76,8 @@ page 50406 LunchOrderEnteryPage
         SelectedLunchOrderEnteries: Record LunchOrderEntry;
     begin
         CurrPage.SetSelectionFilter(SelectedLunchOrderEnteries);
-
-        SelectedLunchOrderEnteries.ModifyAll(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::"Sent to Vendor", true);
+        if not SelectedLunchOrderEnteries.IsEmpty() then
+            SelectedLunchOrderEnteries.ModifyAll(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::"Sent to Vendor", true);
     end;
     
 }

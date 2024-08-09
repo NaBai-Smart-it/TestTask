@@ -40,6 +40,10 @@ table 50401 LunchMenu
         field(7; Price; Decimal)
         {
             Caption = 'Price';
+            trigger OnValidate()
+            begin
+                Rec."Order Amount" := (Rec."Order Quantity" * Rec.Price);
+            end;
         }
         field(8; Identation; Integer)
         {
@@ -82,15 +86,7 @@ table 50401 LunchMenu
         {
             FieldClass = FlowField;
             Editable = false;
-            CalcFormula = Sum(LunchOrderEntry.Quantity WHERE("Menu Item Entry No." = FIELD("Parent Menu Item Entry No.")));
-        }
-        field(15; "Self-Ordered"; Boolean)
-        {
-            Caption = 'Self-Ordered';
-        }
-        field(16; "Parent Menu Item Entry No."; Integer)
-        {
-            Caption = 'Parent Menu Item Entry No.';
+            CalcFormula = Sum(LunchOrderEntry.Quantity WHERE("Menu Item Entry No." = FIELD("Menu Item Entry No.")));
         }
     }
 

@@ -3,7 +3,6 @@ table 50405 LunchItemSetup
     Caption = 'Item Setup';
     DataClassification = CustomerContent;
     
-    
     fields
     {
         field(1; "Primary Key"; Code[10])

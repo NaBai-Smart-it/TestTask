@@ -38,7 +38,7 @@ page 50405 LunchMenuList
                 field("Item No.";Rec."Item No.")
                 {
                     StyleExpr = BoldTextStyle;
-                    LookupPageId = LunchItemList;
+                    //LookupPageId = LunchItemList;
                 }
                 field(Weight;Rec.Weight)
                 {
@@ -53,10 +53,6 @@ page 50405 LunchMenuList
                     StyleExpr = BoldTextStyle;
                 }
                 field("Line Type";Rec."Line Type")
-                {
-                    StyleExpr = BoldTextStyle;
-                }
-                field("Self-Orderd";Rec."Self-Ordered")
                 {
                     StyleExpr = BoldTextStyle;
                 }
@@ -104,7 +100,10 @@ page 50405 LunchMenuList
         end;
     end;
 
-    
+    trigger OnOpenPage()
+    begin
+        CurrPage.ItemPicture.Page.SetHideActions();
+    end;
 
 
 }

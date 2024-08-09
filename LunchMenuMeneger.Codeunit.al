@@ -6,21 +6,17 @@ codeunit 50401 LunchMenuTableMenger
         LunchItem: Record LunchItem;
         NoSuchItemText: Label 'No such Item in a datbase, pleas try again.';
     begin
-        if (Rec."Item No." <> '') then
-        begin
-            if LunchItem.Get(Rec."Item No.") then
-            begin
+        if (Rec."Item No." <> '') then begin
+            if LunchItem.Get(Rec."Item No.") then begin
                 Rec.Description := LunchItem.Description;
                 Rec.Weight := LunchItem.Weight;
                 Rec.Price := LunchItem.Price;
-                Rec."Self-Ordered" := LunchItem."Self-Order";
+            end else begin
+                Message(NoSuchItemText);
+                Rec."Item No." := '';
             end;
         end
-        else
-        begin
-            Message(NoSuchItemText);
-            Rec."Item No." := '';
-        end;
+
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::LunchMenu, 'OnAfterValidateEvent', 'Line Type', true, true)]

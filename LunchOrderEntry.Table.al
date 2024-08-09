@@ -59,8 +59,4 @@ table 50403 LunchOrderEntry
             Clustered = true;
         }
     }
-
-  
-    
-    
 }
