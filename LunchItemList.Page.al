@@ -60,10 +60,11 @@ page 50401 LunchItemList
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("No.");
             }
-            //fhg
-            systempart(Control1900383207; Links)
+            part(InfoLink; ItemInfoFactBox)
             {
+                Caption = 'Info link';
                 ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
             }
         }
     }
