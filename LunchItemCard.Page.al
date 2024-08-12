@@ -17,7 +17,6 @@ page 50400 LunchItemCard
                 {
                     ShowMandatory = true;
                     Caption = 'Vendor No.';
-                    //TableRelation = Vendor."No." where(LunchVendor = const(true));
                 }
                 field(Description;Rec.Description)
                 {

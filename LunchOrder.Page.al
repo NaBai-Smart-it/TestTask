@@ -167,7 +167,7 @@ page 50402 LunchOrder
         end;
     end;
 
-    procedure AssignValues(var LunchOrderEntery: Record LunchOrderEntry; var TempLunchOrderEnteries: Record LunchMenu)
+    local procedure AssignValues(var LunchOrderEntery: Record LunchOrderEntry; var TempLunchOrderEnteries: Record LunchMenu)
     begin
         LunchOrderEntery.Validate("Item Description", TempLunchOrderEnteries.Description);
         LunchOrderEntery.Validate("Menu Item Entry No.", TempLunchOrderEnteries."Menu Item Entry No.");
@@ -180,7 +180,7 @@ page 50402 LunchOrder
         LunchOrderEntery.Validate("Vendor No.", TempLunchOrderEnteries."Vendor No.");
     end;
     
-    procedure PopulateTable()
+    local procedure PopulateTable()
     var
         LunchOrderCodeunit: Codeunit LunchOrderMenger;
     begin

@@ -38,7 +38,6 @@ page 50405 LunchMenuList
                 field("Item No.";Rec."Item No.")
                 {
                     StyleExpr = BoldTextStyle;
-                    //LookupPageId = LunchItemList;
                 }
                 field(Weight;Rec.Weight)
                 {

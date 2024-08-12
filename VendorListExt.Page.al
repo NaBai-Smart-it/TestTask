@@ -28,21 +28,4 @@ page 50409 LunchVendorList
     begin
         Rec.SetRange(LunchVendor, true);
     end;
-
-    // procedure SetAddFilters()
-    // var
-    //     myInt: Integer;
-    // begin
-    //     if LunchVendorNeeded then
-    //         Rec.SetRange(LunchVendor, true);
-
-    // end;
-
-    // procedure SetLunchVendorNeeded()
-    // begin
-    //     LunchVendorNeeded := true;
-    // end;
-
-    // var
-    //     LunchVendorNeeded: Boolean;
 }
