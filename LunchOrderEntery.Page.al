@@ -45,27 +45,39 @@ page 50406 LunchOrderEnteryPage
                 field(Status; Rec.Status)
                 {
                 }
-                field(SystemCreatedAt; Rec.SystemCreatedAt)
-                {
-                }
-                field(SystemCreatedBy; Rec.SystemCreatedBy)
-                {
-                }
-                field(SystemId; Rec.SystemId)
-                {
-                }
-                field(SystemModifiedAt; Rec.SystemModifiedAt)
-                {
-                }
-                field(SystemModifiedBy; Rec.SystemModifiedBy)
-                {
-                }
                 field("Vendor No."; Rec."Vendor No.")
                 {
                 }
             }
-
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(SendToVendor)
+            {
+                Caption = 'Send To Vendor';
+                Image = SendTo;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                begin
+                    SendToVendorSelected();
+                end;
+            }
+        }
+    }
+
+    procedure SendToVendorSelected()
+    var
+        SelectedLunchOrderEnteries: Record LunchOrderEntry;
+    begin
+        CurrPage.SetSelectionFilter(SelectedLunchOrderEnteries);
+
+        SelectedLunchOrderEnteries.ModifyAll(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::"Sent to Vendor", true);
+    end;
     
 }

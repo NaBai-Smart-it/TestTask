@@ -3,8 +3,7 @@ page 50400 LunchItemCard
     Caption = ' Lunch Item Card';
     PageType = Card;
     ApplicationArea = All;
-    SourceTable = Item;
-    
+    SourceTable = LunchItem;
     
     layout
     {
@@ -16,11 +15,13 @@ page 50400 LunchItemCard
 
                 field("Vendor No.";Rec."Vendor No.")
                 {
+                    ShowMandatory = true;
                     Caption = 'Vendor No.';
-                    LookupPageId = "Vendor List";
+                    TableRelation = Vendor."No." where(LunchVendor = const(true));
                 }
                 field(Description;Rec.Description)
                 {
+                    ShowMandatory = true;
                     Caption = 'Description';
                 }
                 field(Weight;Rec.Weight)
@@ -45,10 +46,8 @@ page 50400 LunchItemCard
                         Regex: Codeunit Regex;
                         ErrorMes : Label 'You must provide a proper URL link';
                     begin
-                        Message('S');
                         if not Regex.IsMatch(Rec."Info Link", '^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(\/\S*)?$') then
                         begin
-                            Message('x');
                             Error(ErrorMes);
                         end;
                     end;
@@ -57,7 +56,47 @@ page 50400 LunchItemCard
                 {
                     Caption = 'Self-Order';
                 }
+                
+            }
+
+            group(Nutritions)
+            {
+                Caption = 'Nutritions info (per 100g)';
+
+                field("Fats (g)";Rec."Fats (g)")
+                {
+                    Caption = 'Fats (g)';
+                }
+                field("Carbs (g)";Rec."Carbs (g)")
+                {
+                    Caption = 'Carbs (g)';
+                }
+                field("Fiber (g)";Rec."Fiber (g)")
+                {
+                    Caption = 'Fiber (g)';
+                }
+                field("Protein (g)";Rec."Protein (g)")
+                {
+                    Caption = 'Protein (g)';
+                }
+                field(Calories;Rec.Calories)
+                {
+                    Caption = 'Calories';
+                }
+
+            }
+        }
+        area(factboxes)
+        {
+            part(ItemPicture; ItemPictureFactBox)
+            {
+                ApplicationArea = All;
+                Caption = 'Picture';
+                SubPageLink = "No." = field("No.");
             }
         }
     }
+
+
+    
 }

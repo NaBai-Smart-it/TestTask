@@ -4,73 +4,61 @@ page 50403 LunchMenuCard
     PageType = Card;
     ApplicationArea = All;
     SourceTable = LunchMenu;
-    
+
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            group("Lunch Menu")
             {
-                field("Line No.";Rec."Line No.")
+                Caption = 'Lunch Menu';
+                field("Line No."; Rec."Line No.")
                 {
-                    
+
                 }
-                field("Menu Date";Rec."Menu Date")
+                field("Menu Date"; Rec."Menu Date")
                 {
-                   
+                    ShowMandatory = true;
                 }
-                field("Vendor No.";Rec."Vendor No.")
+                field("Vendor No."; Rec."Vendor No.")
                 {
+                    ShowMandatory = true;
                     LookupPageId = "Vendor List";
-                    
                 }
-                field("Item No.";Rec."Item No.")
+                field("Line Type"; Rec."Line Type")
                 {
-                    LookupPageId = "Item List";
-                    
-                }
-                field(Description;Rec.Description)
-                {
-                    
+                    ShowMandatory = true;
                     trigger OnValidate()
-                    var 
-                        LunchItem: Record Item;
                     begin
-                        if not (Rec."Item No." = '') then
-                        begin
-                            LunchItem.Reset();
-                            LunchItem.Get(Rec."Item No.");
-                            Rec.Description := LunchItem."Description";
-                        end;
+                        if Rec."Line Type" = Rec."Line Type"::Item then
+                            IsInsertingItemLine := true
+                        else
+                            IsInsertingItemLine := false;
                     end;
                 }
-                field(Weight;Rec.Weight)
+                field("Item No."; Rec."Item No.")
                 {
-                    
+                    Editable = IsInsertingItemLine;
                 }
-                field(Price;Rec.Price)
+                field(Description; Rec.Description)
                 {
-                    
+                    ShowMandatory = true;
                 }
-                field(Identation;Rec.Identation)
+                field(Weight; Rec.Weight)
                 {
-                    
+                    Editable = IsInsertingItemLine;
                 }
-                field(Active;Rec.Active)
+                field(Price; Rec.Price)
                 {
-                    
-                }
-                field("Line Type";Rec."Line Type")
-                {
-                    
-                }
-                field("Self-Orderd";Rec."Self-Orderd")
-                {
-                    
+                    Editable = IsInsertingItemLine;
                 }
             }
         }
     }
 
-    
+
+
+    var
+        IsInsertingItemLine: Boolean;
+
 }

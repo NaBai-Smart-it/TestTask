@@ -1,10 +1,10 @@
 page 50401 LunchItemList
 {
-    Caption = 'Lunch Item Lisst';
+    Caption = 'Lunch Item List';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = Item;
+    SourceTable = LunchItem;
     CardPageId = LunchItemCard;
     
     layout
@@ -13,8 +13,12 @@ page 50401 LunchItemList
         {
             repeater(ITemDetails)
             {
-                Caption = 'Item Details';
+                Caption = 'Items Details';
 
+                field("No.";Rec."No.")
+                {
+                    Caption = 'Item No.';
+                }
                 field("Vendor No.";Rec."Vendor No.")
                 {
                     Caption = 'Vendor No.';
@@ -27,12 +31,10 @@ page 50401 LunchItemList
                 field(Weight;Rec.Weight)
                 {
                     Caption = 'Weight';
-                    MinValue = 0;
                 }
                 field(Price;Rec.Price)
                 {
                     Caption = 'Price';
-                    MinValue = 0;
                 }
                 field(Picture;Rec.Picture)
                 {
@@ -49,11 +51,27 @@ page 50401 LunchItemList
                 }
             }
         }
-
+        area(factboxes)
+        {
+            part(ItemPicture; ItemPictureFactBox)
+            {
+                ApplicationArea = All;
+                Caption = 'Picture';
+                SubPageLink = "No." = field("No.");
+            }
+            part(ItemStats; NutritionsPieChart)
+            {
+                ApplicationArea = All;
+                Caption = 'Nutritions Info';
+                SubPageLink = "No." = field("No.");
+                UpdatePropagation = Both;
+            }
+            systempart(Control1900383207; Links)
+            {
+                ApplicationArea = All;
+            }
+        }
     }
-    trigger OnOpenPage()
-    begin
-        
-    end;
+
     
 }
