@@ -101,21 +101,6 @@ page 50402 LunchOrder
             }
         }
     }
-    
-    
-    actions
-    {
-        area(Navigation)
-        {
-            action(ComposeMenu)
-            {
-                Caption = 'Compose Menu';
-                Image = New;
-                RunPageMode = View;
-                RunObject = Page LunchMenuList;
-            }
-        }
-    }
 
     var 
         BoldTextStyle : Text;
@@ -128,6 +113,7 @@ page 50402 LunchOrder
         LunchOrderCodeunit : Codeunit LunchOrderMenger;
     begin
         MenuDate := LunchOrderCodeunit.GetMaxMenuDate();
+        CurrPage.ItemPicture.Page.SetHideActions();
     end;
 
     trigger OnQueryClosePage(CloseAction: Action) : Boolean
@@ -137,10 +123,7 @@ page 50402 LunchOrder
         LunchOrderEntery: Record LunchOrderEntry;
         LunchOrderMeneger : Codeunit LunchOrderMenger;
     begin
-        // CloseAction - OK - Confirm Order?
-        // CloseAction - Cancel - Exit without saving the changes?
-        if Confirm(ConfirmationOrderText, false) then 
-        begin
+        if Confirm(ConfirmationOrderText, false) then begin
             Rec.SetAutoCalcFields(Rec."Prewies Quantity");
 
             if Rec.FindSet() then
@@ -154,8 +137,7 @@ page 50402 LunchOrder
                         LunchOrderEntery.SetRange(LunchOrderEntery."Menu Item Entry No.", Rec."Menu Item Entry No.");
                         LunchOrderEntery.SetRange(LunchOrderEntery."Resourse No.", UserId());
 
-                        if not LunchOrderEntery.FindFirst() then 
-                        begin
+                        if not LunchOrderEntery.FindFirst() then begin
                             LunchOrderEntery.Init();
                             LunchOrderEntery.Validate(LunchOrderEntery."Entry No.", LunchOrderMeneger.GetNextEntryNo());
                             AssignValues(LunchOrderEntery, Rec);
@@ -164,22 +146,28 @@ page 50402 LunchOrder
                                 Message('Record %1 inserted', Rec.Description)
                             else
                                 Message('Record %1 was NOT inserted', Rec.Description);
-                        end 
-                        else
-                        begin
-                            
-                            AssignValues(LunchOrderEntery, Rec);
-                            if(LunchOrderEntery.Modify(true)) then
-                                Message('Record %1 Modified', Rec.Description)
-                            else
-                                Message('Record %1 Was NOT Modified', Rec.Description);
+                        end else begin
+
+                            if Rec."Order Quantity" = 0 then begin
+                                if LunchOrderEntery.Delete(true) then
+                                    Message('Record %1 deleted', Rec.Description)
+                                else
+                                    Message('Record %1 was NOT deleted', Rec.Description)
+                            end else begin
+                                AssignValues(LunchOrderEntery, Rec);
+
+                                if(LunchOrderEntery.Modify(true)) then
+                                    Message('Record %1 Modified', Rec.Description)
+                                else
+                                    Message('Record %1 Was NOT Modified', Rec.Description)
+                            end;
                         end;
                     end;
                 until Rec.Next() = 0;
         end;
     end;
 
-    procedure AssignValues(var LunchOrderEntery: Record LunchOrderEntry; var TempLunchOrderEnteries: Record LunchMenu)
+    local procedure AssignValues(var LunchOrderEntery: Record LunchOrderEntry; var TempLunchOrderEnteries: Record LunchMenu)
     begin
         LunchOrderEntery.Validate("Item Description", TempLunchOrderEnteries.Description);
         LunchOrderEntery.Validate("Menu Item Entry No.", TempLunchOrderEnteries."Menu Item Entry No.");
@@ -192,7 +180,7 @@ page 50402 LunchOrder
         LunchOrderEntery.Validate("Vendor No.", TempLunchOrderEnteries."Vendor No.");
     end;
     
-    procedure PopulateTable()
+    local procedure PopulateTable()
     var
         LunchOrderCodeunit: Codeunit LunchOrderMenger;
     begin
@@ -207,47 +195,9 @@ page 50402 LunchOrder
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
             BoldTextStyle := 'Strong'
         else 
-        begin
             BoldTextStyle := '';
-        end;
 
         MenuDate := LunchOrderCodeunit.GetMaxMenuDate();
         IsEditable := Rec.Active;
     end;
-
-// //Codeunit
-//     procedure PopulateTempLunchMenuTable()
-//     var
-//         LunchMenuEnteries: Record LunchMenu;
-//     begin
-//         rec.DeleteAll(false);
-//         LunchMenuEnteries.Reset();
-//         LunchMenuEnteries.SetRange(LunchMenuEnteries."Menu Date", MenuDate);
-//         LunchMenuEnteries.SetRange(LunchMenuEnteries."Vendor No.", VendorNo);
-
-
-//         LunchMenuEnteries.FindSet();
-//         repeat
-//             Rec.Init();
-//             Rec."Line No." := LunchMenuEnteries."Line No.";
-//             Rec.Description := LunchMenuEnteries.Description;
-//             Rec."Menu Date" := LunchMenuEnteries."Menu Date";
-//             Rec."Vendor No." := LunchMenuEnteries."Vendor No.";
-//             Rec."Line Type" := LunchMenuEnteries."Line Type";
-//             Rec.Weight := LunchMenuEnteries.Weight;
-//             Rec.Price := LunchMenuEnteries.Price;
-//             Rec."Item No." := LunchMenuEnteries."Item No.";
-//             Rec.Active := LunchMenuEnteries.Active;
-//             Rec."Menu Item Entry No." := LunchMenuEnteries."Menu Item Entry No.";
-//             Rec.Identation := LunchMenuEnteries.Identation;
-//             Rec.Insert(false)
-            
-//         until LunchMenuEnteries.Next() = 0;
-
-//         Rec.FindSet();
-//         repeat
-//         until Rec.Next() = 0;
-//     end;
-
-    
 }

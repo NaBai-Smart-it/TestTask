@@ -71,13 +71,14 @@ page 50406 LunchOrderEnteryPage
         }
     }
 
-    procedure SendToVendorSelected()
+    local procedure SendToVendorSelected()
     var
         SelectedLunchOrderEnteries: Record LunchOrderEntry;
     begin
         CurrPage.SetSelectionFilter(SelectedLunchOrderEnteries);
-
-        SelectedLunchOrderEnteries.ModifyAll(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::"Sent to Vendor", true);
+        SelectedLunchOrderEnteries.SetRange(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::Created);
+        if not SelectedLunchOrderEnteries.IsEmpty() then
+            SelectedLunchOrderEnteries.ModifyAll(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::"Sent to Vendor", true);
     end;
     
 }

@@ -58,11 +58,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Protein (g) - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 4262982587 - Field 4001937001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Self-Order</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table LunchItem - Field Self-Order - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 4262982587 - Field 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Veendor No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -148,11 +143,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchMenu - Field Order Quantity - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 4210009825 - Field 765738435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Parent Menu Item Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table LunchMenu - Field Parent Menu Item Entry No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 4210009825 - Field 2755677432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prewies Quantity</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -162,11 +152,6 @@
           <source>Price</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LunchMenu - Field Price - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 4210009825 - Field 2663066490 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Self-Ordered</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table LunchMenu - Field Self-Ordered - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4210009825 - Field 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor No.</source>
@@ -323,11 +308,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Price - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3644934735 - Control 4001937001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Self-Order</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemCard - Control Self-Order - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3644934735 - Control 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -408,11 +388,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control Price - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 131924453 - Control 4001937001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Self-Order</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchItemList - Control Self-Order - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 131924453 - Control 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -488,11 +463,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Control ItemStats - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 87030990 - Action 1242500501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Compose Menu</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LunchOrder - Action ComposeMenu - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2601119804 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lunch Order Enteries</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -517,6 +487,11 @@
           <source>Calories</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page NutritionsPieChart - Control Calories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3929085449 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Menu For today</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MenuForToday - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2232096380 - Field 2232096380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
           <source>Lunch Vendor</source>

@@ -23,7 +23,6 @@ page 50403 LunchMenuCard
                 field("Vendor No."; Rec."Vendor No.")
                 {
                     ShowMandatory = true;
-                    LookupPageId = "Vendor List";
                 }
                 field("Line Type"; Rec."Line Type")
                 {

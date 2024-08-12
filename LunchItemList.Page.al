@@ -22,7 +22,6 @@ page 50401 LunchItemList
                 field("Vendor No.";Rec."Vendor No.")
                 {
                     Caption = 'Vendor No.';
-                    LookupPageId = "Vendor List";
                 }
                 field(Description;Rec.Description)
                 {
@@ -45,10 +44,6 @@ page 50401 LunchItemList
                     Caption = 'Info link';
                     
                 }
-                field("Self-Order";Rec."Self-Order")
-                {
-                    Caption = 'Self-Order';
-                }
             }
         }
         area(factboxes)
@@ -64,8 +59,8 @@ page 50401 LunchItemList
                 ApplicationArea = All;
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("No.");
-                UpdatePropagation = Both;
             }
+            //fhg
             systempart(Control1900383207; Links)
             {
                 ApplicationArea = All;

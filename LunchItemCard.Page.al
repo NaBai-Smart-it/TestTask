@@ -17,7 +17,6 @@ page 50400 LunchItemCard
                 {
                     ShowMandatory = true;
                     Caption = 'Vendor No.';
-                    TableRelation = Vendor."No." where(LunchVendor = const(true));
                 }
                 field(Description;Rec.Description)
                 {
@@ -51,10 +50,6 @@ page 50400 LunchItemCard
                             Error(ErrorMes);
                         end;
                     end;
-                }
-                field("Self-Order";Rec."Self-Order")
-                {
-                    Caption = 'Self-Order';
                 }
                 
             }

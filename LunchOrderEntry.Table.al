@@ -21,14 +21,17 @@ table 50403 LunchOrderEntry
         field(4; "Menu Item Entry No."; Integer)
         {
             Caption = 'Menu Item Entry No.';
+            TableRelation = LunchMenu."Menu Item Entry No.";
         }
         field(5; "Vendor No."; Code[20])
         {
             Caption = 'Vendor No.';
+            TableRelation = LunchMenu."Vendor No.";
         }
         field(6; "Menu Item No."; Code[20])
         {
             Caption = 'Menu Item No.';
+            TableRelation = LunchMenu."Item No.";
         }
         field(7; "Item Description"; Text[250])
         {
@@ -59,8 +62,4 @@ table 50403 LunchOrderEntry
             Clustered = true;
         }
     }
-
-  
-    
-    
 }

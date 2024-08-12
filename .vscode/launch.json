@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Your own server",
             "request": "launch",
@@ -9,7 +10,7 @@
             "server": "http://locapps",
             "serverInstance": "BC",
             "authentication": "UserPassword",
-            "startupObjectId": 50406,
+            "startupObjectId": 50405,
             "startupObjectType": "Page",
             "schemaUpdateMode": "ForceSync",
             "breakOnError": "All",

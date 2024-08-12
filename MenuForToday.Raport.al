@@ -1,5 +1,6 @@
 report 50400 MenuForToday
 {
+    Caption = 'Menu For today';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = Word;
@@ -16,6 +17,9 @@ report 50400 MenuForToday
             {
             }
             column(ItemNo_LunchMenu; "Item No.")
+            {
+            }
+            column(Vendor_No_;"Vendor No.")
             {
             }
             column(Description; Description)

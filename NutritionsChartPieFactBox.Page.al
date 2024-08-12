@@ -29,7 +29,7 @@ page 50412 NutritionsPieChart
         ComposePieChart();
     end;
 
-    procedure ComposePieChart()
+    local procedure ComposePieChart()
         ChartBuffer : Record "Business Chart Buffer" temporary;
     var
     begin
