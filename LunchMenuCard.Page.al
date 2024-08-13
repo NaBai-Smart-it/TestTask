@@ -14,7 +14,7 @@ page 50403 LunchMenuCard
                 Caption = 'Lunch Menu';
                 field("Line No."; Rec."Line No.")
                 {
-
+                    ShowMandatory = true;
                 }
                 field("Menu Date"; Rec."Menu Date")
                 {
@@ -54,8 +54,6 @@ page 50403 LunchMenuCard
             }
         }
     }
-
-
 
     var
         IsInsertingItemLine: Boolean;

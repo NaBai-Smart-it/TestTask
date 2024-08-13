@@ -1,4 +1,4 @@
-page 50406 LunchOrderEnteryPage
+page 50406 LunchOrderEntery
 {
     Caption = 'Lunch Order Enteries';
     PageType = List;

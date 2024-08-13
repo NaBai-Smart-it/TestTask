@@ -2,6 +2,8 @@ table 50403 LunchOrderEntry
 {
     Caption = 'Lunch Order Entry';
     DataClassification = CustomerContent;
+    LookupPageId = LunchOrderEntery;
+    DrillDownPageId = LunchOrderEntery;
     
     fields
     {

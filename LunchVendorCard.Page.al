@@ -13,7 +13,6 @@ page 50411 LunchVendorCard
             {
                 field(Name;Rec.Name)
                 {
-
                 }
             }
         }

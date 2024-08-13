@@ -94,11 +94,8 @@ page 50405 LunchMenuList
         begin
             BoldTextStyle := 'Strong';
             isEditable := false;
-        end
-        else 
-        begin
+        end else 
             BoldTextStyle := '';
-        end;
     end;
 
     trigger OnOpenPage()

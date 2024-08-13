@@ -26,12 +26,10 @@ page 50400 LunchItemCard
                 field(Weight;Rec.Weight)
                 {
                     Caption = 'Weight';
-                    MinValue = 0;
                 }
                 field(Price;Rec.Price)
                 {
                     Caption = 'Price';
-                    MinValue = 0;
                 }
                 field(Picture;Rec.Picture)
                 {
@@ -60,23 +58,18 @@ page 50400 LunchItemCard
 
                 field("Fats (g)";Rec."Fats (g)")
                 {
-                    Caption = 'Fats (g)';
                 }
                 field("Carbs (g)";Rec."Carbs (g)")
                 {
-                    Caption = 'Carbs (g)';
                 }
                 field("Fiber (g)";Rec."Fiber (g)")
                 {
-                    Caption = 'Fiber (g)';
                 }
                 field("Protein (g)";Rec."Protein (g)")
                 {
-                    Caption = 'Protein (g)';
                 }
                 field(Calories;Rec.Calories)
                 {
-                    Caption = 'Calories';
                 }
 
             }

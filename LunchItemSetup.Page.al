@@ -16,11 +16,9 @@ page 50410 LunchItemSetup
             {
                 field("No. Series Code";Rec."No. Series Code")
                 {
-
                 }
                 field("Usage Date";Rec."Usage Date")
                 {
-
                 }
             }
         }
