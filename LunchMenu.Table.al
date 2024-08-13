@@ -2,6 +2,8 @@ table 50401 LunchMenu
 {
     Caption = 'Lunch Menu';
     DataClassification = CustomerContent;
+    LookupPageId = LunchMenuList;
+    DrillDownPageId = LunchMenuList;
 
     fields
     {
@@ -9,7 +11,6 @@ table 50401 LunchMenu
         {
             Caption = 'Vendor No.';
             TableRelation = Vendor."No." where(LunchVendor = const(true));
-            
         }
         field(2; "Menu Date"; Date)
         {

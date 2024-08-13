@@ -17,32 +17,18 @@ page 50401 LunchItemList
 
                 field("No.";Rec."No.")
                 {
-                    Caption = 'Item No.';
                 }
                 field("Vendor No.";Rec."Vendor No.")
                 {
-                    Caption = 'Vendor No.';
                 }
                 field(Description;Rec.Description)
                 {
-                    Caption = 'Description';
                 }
                 field(Weight;Rec.Weight)
                 {
-                    Caption = 'Weight';
                 }
                 field(Price;Rec.Price)
                 {
-                    Caption = 'Price';
-                }
-                field(Picture;Rec.Picture)
-                {
-                    Caption = 'Picture';
-                }
-                field("Info Link";Rec."Info Link")
-                {
-                    Caption = 'Info link';
-                    
                 }
             }
         }
@@ -60,10 +46,11 @@ page 50401 LunchItemList
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("No.");
             }
-            //fhg
-            systempart(Control1900383207; Links)
+            part(InfoLink; ItemInfoFactBox)
             {
+                Caption = 'Info link';
                 ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
             }
         }
     }

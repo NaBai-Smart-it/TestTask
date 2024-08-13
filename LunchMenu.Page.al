@@ -75,9 +75,11 @@ page 50405 LunchMenuList
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("Item No.");
             }
-            systempart(Control1900383207; Links)
+            part(InfoLink; ItemInfoFactBox)
             {
+                Caption = 'Info link';
                 ApplicationArea = All;
+                SubPageLink = "No." = field("Item No.");
             }
         }
     }
@@ -92,11 +94,8 @@ page 50405 LunchMenuList
         begin
             BoldTextStyle := 'Strong';
             isEditable := false;
-        end
-        else 
-        begin
+        end else 
             BoldTextStyle := '';
-        end;
     end;
 
     trigger OnOpenPage()

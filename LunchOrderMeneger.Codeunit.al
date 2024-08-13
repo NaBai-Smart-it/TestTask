@@ -52,9 +52,7 @@ codeunit 50400 LunchOrderMenger
         LunchOrderEnteries.SetCurrentKey("Entry No.");
         LunchOrderEnteries.Ascending(false);
         if LunchOrderEnteries.FindFirst() then
-            begin
                 exit(LunchOrderEnteries."Entry No." + 1);
-            end;
 
         exit(1);
     end;

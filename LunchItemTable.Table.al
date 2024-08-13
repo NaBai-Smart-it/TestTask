@@ -1,7 +1,9 @@
 table 50400 LunchItem
 {
     Caption = 'Lunch Item';
+    DataClassification = CustomerContent;
     LookupPageId = LunchItemCard;
+    DrillDownPageId = LunchItemCard;
 
     fields
     {
@@ -24,13 +26,11 @@ table 50400 LunchItem
         {
             Caption = 'Weight';
             MinValue = 0;
-            InitValue = 0;
         }
         field(5; Price; Decimal)
         {
             Caption = 'Price';
             MinValue = 0;
-            InitValue = 0;
         }
         field(6; "Info Link"; Text[250])
         {
@@ -44,31 +44,26 @@ table 50400 LunchItem
         {
             Caption = 'Fats (g)';
             MinValue = 0;
-            InitValue = 0;
         }
         field(10; "Carbs (g)"; Decimal)
         {
             Caption = 'Carbs (g)';
             MinValue = 0;
-            InitValue = 0;
         }
         field(11; "Protein (g)"; Decimal)
         {
             Caption = 'Protein (g)';
             MinValue = 0;
-            InitValue = 0;
         }
         field(12; "Fiber (g)"; Decimal)
         {
             Caption = 'Fiber (g)';
             MinValue = 0;
-            InitValue = 0;
         }
         field(13; "Calories"; Decimal)
         {
             Caption = 'Calories';
             MinValue = 0;
-            InitValue = 0;
         }
 
     }
@@ -94,7 +89,7 @@ table 50400 LunchItem
         LunchItemSetup: Record LunchItemSetup;
     begin
         if ("No." = '') then begin
-            LunchItemSetup.FindFirst();
+            LunchItemSetup.Get();
             Rec."No." := NoSeriesMgt.GetNextNo(LunchItemSetup."No. Series Code", LunchItemSetup."Usage Date");
         end;
             

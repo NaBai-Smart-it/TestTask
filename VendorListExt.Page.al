@@ -14,11 +14,9 @@ page 50409 LunchVendorList
             {
                 field("No.";Rec."No.")
                 {
-
                 }
                 field(Name;Rec.Name)
                 {
-
                 }
             }
         }
