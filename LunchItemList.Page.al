@@ -39,11 +39,6 @@ page 50401 LunchItemList
                 {
                     Caption = 'Picture';
                 }
-                field("Info Link";Rec."Info Link")
-                {
-                    Caption = 'Info link';
-                    
-                }
             }
         }
         area(factboxes)
