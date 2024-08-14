@@ -1,8 +1,8 @@
-page 50408 ItemInfoFactBox
+page 50408 "Item Info"
 {
     PageType = CardPart;
     ApplicationArea = All;
-    SourceTable = LunchItem;
+    SourceTable = "Lunch Item";
     
     layout
     {

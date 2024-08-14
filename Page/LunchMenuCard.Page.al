@@ -1,9 +1,9 @@
-page 50403 LunchMenuCard
+page 50403 "Lunch Menu Card"
 {
     Caption = 'Lunch Menu Card';
     PageType = Card;
     ApplicationArea = All;
-    SourceTable = LunchMenu;
+    SourceTable = "Lunch Menu";
 
     layout
     {
@@ -38,7 +38,7 @@ page 50403 LunchMenuCard
                 field("Item No."; Rec."Item No.")
                 {
                     Editable = IsInsertingItemLine;
-                    DrillDownPageId = LunchItemList;
+                    DrillDownPageId = "Lunch Items";
                 }
                 field(Description; Rec.Description)
                 {

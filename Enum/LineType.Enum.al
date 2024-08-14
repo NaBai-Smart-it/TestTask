@@ -1,4 +1,4 @@
-enum 50400 LineType
+enum 50400 "Line Type"
 {
     Extensible = true;
     

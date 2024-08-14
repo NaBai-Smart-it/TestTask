@@ -1,11 +1,11 @@
-page 50409 LunchVendorList 
+page 50409 "Lunch Vendors" 
 {
-    Caption = 'Lunch Vendor List';
+    Caption = 'Lunch Vendors';
     PageType = List;
     UsageCategory = Lists;
-    CardPageId = LunchVendorCard;
+    CardPageId = "Lunch Vendor Card";
     SourceTable = Vendor;
-    SourceTableView = where (LunchVendor = const(true));
+    SourceTableView = where ("Lunch Vendor" = const(true));
 
     layout
     {

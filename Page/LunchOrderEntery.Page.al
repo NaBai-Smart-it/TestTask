@@ -1,10 +1,10 @@
-page 50406 LunchOrderEntery
+page 50406 "Lunch Order Entries"
 {
-    Caption = 'Lunch Order Enteries';
+    Caption = 'Lunch Order Entries';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = LunchOrderEntry;
+    SourceTable = "Lunch Order Entry";
     Editable = false;
     
     layout
@@ -73,7 +73,7 @@ page 50406 LunchOrderEntery
 
     local procedure SendToVendorSelected()
     var
-        SelectedLunchOrderEnteries: Record LunchOrderEntry;
+        SelectedLunchOrderEnteries: Record "Lunch Order Entry";
     begin
         CurrPage.SetSelectionFilter(SelectedLunchOrderEnteries);
         SelectedLunchOrderEnteries.SetRange(SelectedLunchOrderEnteries.Status, SelectedLunchOrderEnteries.Status::Created);

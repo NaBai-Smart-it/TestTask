@@ -1,4 +1,4 @@
-page 50411 LunchVendorCard
+page 50411 "Lunch Vendor Card"
 {
     Caption = 'Lunch Vendor Card';
     PageType = Card;
@@ -20,6 +20,6 @@ page 50411 LunchVendorCard
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec.LunchVendor := true;
+        Rec."Lunch Vendor" := true;
     end;
 }

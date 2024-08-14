@@ -1,9 +1,9 @@
 
-page 50407 ItemPictureFactBox
+page 50407 "Lunch Item Picture"
 {
     PageType = CardPart;
     ApplicationArea = All;
-    SourceTable = LunchItem;
+    SourceTable = "Lunch Item";
     
     layout
     {
@@ -17,7 +17,6 @@ page 50407 ItemPictureFactBox
             }
         }
     }
-
     
     actions
     {

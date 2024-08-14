@@ -1,10 +1,10 @@
-page 50410 LunchItemSetup
+page 50410 "Lunch Item Setup"
 {
     Caption = 'Lunch Item Setup';
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = LunchItemSetup;
+    SourceTable = "Lunch Item Setup";
     InsertAllowed = false;
     DeleteAllowed = false;
     

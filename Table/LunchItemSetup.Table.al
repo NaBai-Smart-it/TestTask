@@ -1,4 +1,4 @@
-table 50405 LunchItemSetup
+table 50405 "Lunch Item Setup"
 {
     Caption = 'Item Setup';
     DataClassification = CustomerContent;

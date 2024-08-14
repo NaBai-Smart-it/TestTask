@@ -9,7 +9,7 @@ report 50400 MenuForToday
     
     dataset
     {
-        dataitem(LunchMenu; LunchMenu)
+        dataitem(LunchMenu; "Lunch Menu")
         {
             RequestFilterFields = "Menu Date";
             

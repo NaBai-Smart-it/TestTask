@@ -1,11 +1,11 @@
-page 50405 LunchMenuList
+page 50405 "Lunch Menu"
 {
-    Caption = 'Lunch Menu List';
+    Caption = 'Lunch Menu';
     UsageCategory = Lists;
     PageType = List;
     ApplicationArea = All;
-    SourceTable = LunchMenu;
-    CardPageId = LunchMenuCard;
+    SourceTable = "Lunch Menu";
+    CardPageId = "Lunch Menu Card";
     AutoSplitKey = true;
     
     layout
@@ -63,19 +63,19 @@ page 50405 LunchMenuList
         }
         area(factboxes)
         {
-            part(ItemPicture; ItemPictureFactBox)
+            part(ItemPicture; "Lunch Item Picture")
             {
                 ApplicationArea = All;
                 Caption = 'Picture';
                 SubPageLink = "No." = field("Item No.");
             }
-            part(ItemStats; NutritionsPieChart)
+            part(ItemStats; "Nutritions Pie Chart")
             {
                 ApplicationArea = All;
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("Item No.");
             }
-            part(InfoLink; ItemInfoFactBox)
+            part(InfoLink; "Item Info")
             {
                 Caption = 'Info link';
                 ApplicationArea = All;

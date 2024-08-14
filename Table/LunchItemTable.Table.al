@@ -1,9 +1,9 @@
-table 50400 LunchItem
+table 50400 "Lunch Item"
 {
     Caption = 'Lunch Item';
     DataClassification = CustomerContent;
-    LookupPageId = LunchItemCard;
-    DrillDownPageId = LunchItemCard;
+    LookupPageId = "Lunch Items";
+    DrillDownPageId = "Lunch Items";
 
     fields
     {
@@ -15,7 +15,7 @@ table 50400 LunchItem
         {
             NotBlank = true;
             Caption = 'Veendor No.';
-            TableRelation = Vendor."No." where(LunchVendor = const(true));
+            TableRelation = Vendor."No." where("Lunch Vendor" = const(true));
         }
         field(3; Description; Text[250])
         {
@@ -41,27 +41,27 @@ table 50400 LunchItem
         {
             Caption = 'Picture';
         }
-        field(9; "Fats (g)"; Decimal)
+        field(9; Fats; Decimal)
         {
             Caption = 'Fats (g)';
             MinValue = 0;
         }
-        field(10; "Carbs (g)"; Decimal)
+        field(10; Carbs; Decimal)
         {
             Caption = 'Carbs (g)';
             MinValue = 0;
         }
-        field(11; "Protein (g)"; Decimal)
+        field(11; Protein; Decimal)
         {
             Caption = 'Protein (g)';
             MinValue = 0;
         }
-        field(12; "Fiber (g)"; Decimal)
+        field(12; Fiber; Decimal)
         {
             Caption = 'Fiber (g)';
             MinValue = 0;
         }
-        field(13; "Calories"; Decimal)
+        field(13; Calories; Decimal)
         {
             Caption = 'Calories';
             MinValue = 0;
@@ -79,7 +79,7 @@ table 50400 LunchItem
 
     fieldgroups
     {
-        fieldgroup(DropDown; "No.", Description, Weight)
+        fieldgroup(DropDown; "No.", Description, Weight, Price)
         {
         }
         fieldgroup(Brick; "No.", Description, Weight, "Vendor No.", Price, Picture)
@@ -90,7 +90,7 @@ table 50400 LunchItem
     trigger OnInsert()
     var
         NoSeriesMgt: Codeunit "No. Series";
-        LunchItemSetup: Record LunchItemSetup;
+        LunchItemSetup: Record "Lunch Item Setup";
     begin
         if ("No." = '') then begin
             LunchItemSetup.Get();
@@ -101,7 +101,7 @@ table 50400 LunchItem
 
     trigger OnDelete()
     var
-        LunchMenuRecord: Record LunchMenu;
+        LunchMenuRecord: Record "Lunch Menu";
     begin
         LunchMenuRecord.SetRange(LunchMenuRecord."Item No.", Rec."No.");
         if not LunchMenuRecord.IsEmpty() then

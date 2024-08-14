@@ -1,4 +1,4 @@
-enum 50401 LunchOrderEntyStatus
+enum 50401 "Lunch Order Entry Status"
 {
     Extensible = true;
     

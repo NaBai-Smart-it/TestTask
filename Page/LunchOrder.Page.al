@@ -4,8 +4,8 @@ page 50402 LunchOrder
     PageType = Worksheet;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = LunchMenu;
-    CardPageId = LunchMenuCard;
+    SourceTable = "Lunch Menu";
+    CardPageId = "Lunch Menu Card";
     SourceTableTemporary = true;
     AutoSplitKey = true;
     InsertAllowed = false;
@@ -23,7 +23,7 @@ page 50402 LunchOrder
                 }
                 field("Vendor No."; VendorNo)
                 {
-                    TableRelation = Vendor."No." where(LunchVendor = const(True));
+                    TableRelation = Vendor."No." where("Lunch Vendor" = const(True));
                     trigger OnValidate()
                     var
                     begin
@@ -82,20 +82,20 @@ page 50402 LunchOrder
         }
         area(factboxes)
         {
-            part(ItemPicture; ItemPictureFactBox)
+            part(ItemPicture; "Lunch Item Picture")
             {
                 ApplicationArea = All;
                 Caption = 'Picture';
                 SubPageLink = "No." = field("Item No.");
             }
-            part(ItemStats; NutritionsPieChart)
+            part(ItemStats; "Nutritions Pie Chart")
             {
                 ApplicationArea = All;
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("Item No.");
                 UpdatePropagation = Both;
             }
-            part(InfoLink; ItemInfoFactBox)
+            part(InfoLink; "Item Info")
             {
                 Caption = 'Info link';
                 ApplicationArea = All;
@@ -112,7 +112,7 @@ page 50402 LunchOrder
 
     trigger OnOpenPage()
     var
-        LunchOrderCodeunit : Codeunit LunchOrderMenger;
+        LunchOrderCodeunit : Codeunit "Lunch Order Menger";
     begin
         MenuDate := LunchOrderCodeunit.GetMaxMenuDate();
         CurrPage.ItemPicture.Page.SetHideActions();
@@ -122,8 +122,8 @@ page 50402 LunchOrder
     var
         EndOfOperation: Boolean;
         ConfirmationOrderText: Label 'Confirm Order?';
-        LunchOrderEntery: Record LunchOrderEntry;
-        LunchOrderMeneger : Codeunit LunchOrderMenger;
+        LunchOrderEntery: Record "Lunch Order Entry";
+        LunchOrderMeneger : Codeunit "Lunch Order Menger";
     begin
         if Confirm(ConfirmationOrderText, false) then begin
             Rec.SetAutoCalcFields(Rec."Prewies Quantity");
@@ -169,7 +169,7 @@ page 50402 LunchOrder
         end;
     end;
 
-    local procedure AssignValues(var LunchOrderEntery: Record LunchOrderEntry; var TempLunchOrderEnteries: Record LunchMenu)
+    local procedure AssignValues(var LunchOrderEntery: Record "Lunch Order Entry"; var TempLunchOrderEnteries: Record "Lunch Menu")
     begin
         LunchOrderEntery.Validate("Item Description", TempLunchOrderEnteries.Description);
         LunchOrderEntery.Validate("Menu Item Entry No.", TempLunchOrderEnteries."Menu Item Entry No.");
@@ -184,7 +184,7 @@ page 50402 LunchOrder
     
     local procedure PopulateTable()
     var
-        LunchOrderCodeunit: Codeunit LunchOrderMenger;
+        LunchOrderCodeunit: Codeunit "Lunch Order Menger";
     begin
         LunchOrderCodeunit.PopulateTempLunchMenuTable(VendorNo, MenuDate, Rec);
         CurrPage.Update(false);
@@ -192,7 +192,7 @@ page 50402 LunchOrder
     
     trigger OnAfterGetRecord()
     var 
-        LunchOrderCodeunit: Codeunit LunchOrderMenger;
+        LunchOrderCodeunit: Codeunit "Lunch Order Menger";
     begin
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
             BoldTextStyle := 'Strong'

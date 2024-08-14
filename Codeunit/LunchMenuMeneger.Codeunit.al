@@ -1,9 +1,9 @@
-codeunit 50401 LunchMenuTableMenger
+codeunit 50401 "Lunch Menu Meneger"
 {
-    [EventSubscriber(ObjectType::Table, DataBase::LunchMenu, 'OnAfterValidateEvent', 'Item No.', true, true)]
-    procedure OnAfterValidateItemNo(var Rec: Record LunchMenu; var xRec: Record LunchMenu; CurrFieldNo: Integer)
+    [EventSubscriber(ObjectType::Table, DataBase::"Lunch Menu", 'OnAfterValidateEvent', 'Item No.', true, true)]
+    procedure OnAfterValidateItemNo(var Rec: Record "Lunch Menu"; var xRec: Record "Lunch Menu"; CurrFieldNo: Integer)
     var
-        LunchItem: Record LunchItem;
+        LunchItem: Record "Lunch Item";
         NoSuchItemText: Label 'No such Item in a datbase, pleas try again.';
     begin
         if (Rec."Item No." <> '') then begin
@@ -18,10 +18,10 @@ codeunit 50401 LunchMenuTableMenger
         end
     end;
 
-    [EventSubscriber(ObjectType::Table, DataBase::LunchMenu, 'OnAfterValidateEvent', 'Line Type', true, true)]
-    procedure OnAfterValidateLineType(var Rec: Record LunchMenu; var xRec: Record LunchMenu; CurrFieldNo: Integer)
+    [EventSubscriber(ObjectType::Table, DataBase::"Lunch Menu", 'OnAfterValidateEvent', 'Line Type', true, true)]
+    procedure OnAfterValidateLineType(var Rec: Record "Lunch Menu"; var xRec: Record "Lunch Menu"; CurrFieldNo: Integer)
     var
-        LunchItem: Record LunchItem;
+        LunchItem: Record "Lunch Item";
     begin
         if (Rec."Line Type" = Rec."Line Type"::"Group Heading") then begin
             Rec."Item No." := '';

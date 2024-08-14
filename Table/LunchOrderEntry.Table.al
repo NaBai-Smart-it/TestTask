@@ -1,9 +1,9 @@
-table 50403 LunchOrderEntry
+table 50403 "Lunch Order Entry"
 {
     Caption = 'Lunch Order Entry';
     DataClassification = CustomerContent;
-    LookupPageId = LunchOrderEntery;
-    DrillDownPageId = LunchOrderEntery;
+    LookupPageId = "Lunch Order Entries";
+    DrillDownPageId = "Lunch Order Entries";
     
     fields
     {
@@ -23,17 +23,17 @@ table 50403 LunchOrderEntry
         field(4; "Menu Item Entry No."; Integer)
         {
             Caption = 'Menu Item Entry No.';
-            TableRelation = LunchMenu."Menu Item Entry No.";
+            TableRelation = "Lunch Menu"."Menu Item Entry No.";
         }
         field(5; "Vendor No."; Code[20])
         {
             Caption = 'Vendor No.';
-            TableRelation = LunchMenu."Vendor No.";
+            TableRelation = "Lunch Menu"."Vendor No.";
         }
         field(6; "Menu Item No."; Code[20])
         {
             Caption = 'Menu Item No.';
-            TableRelation = LunchMenu."Item No.";
+            TableRelation = "Lunch Menu"."Item No.";
         }
         field(7; "Item Description"; Text[250])
         {
@@ -51,7 +51,7 @@ table 50403 LunchOrderEntry
         {
             Caption = 'Amount';
         }
-        field(11; Status; Enum LunchOrderEntyStatus)
+        field(11; Status; Enum "Lunch Order Entry Status")
         {
             Caption = 'Lunch Order Entry Status';
         }

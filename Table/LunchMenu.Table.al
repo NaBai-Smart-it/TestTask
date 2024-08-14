@@ -1,16 +1,16 @@
-table 50401 LunchMenu
+table 50401 "Lunch Menu"
 {
     Caption = 'Lunch Menu';
     DataClassification = CustomerContent;
-    LookupPageId = LunchMenuList;
-    DrillDownPageId = LunchMenuList;
+    LookupPageId = "Lunch Menu";
+    DrillDownPageId = "Lunch Menu";
 
     fields
     {
         field(1; "Vendor No."; Code[20])
         {
             Caption = 'Vendor No.';
-            TableRelation = Vendor."No." where(LunchVendor = const(true));
+            TableRelation = Vendor."No." where("Lunch Vendor" = const(true));
         }
         field(2; "Menu Date"; Date)
         {
@@ -25,7 +25,7 @@ table 50401 LunchMenu
         field(4; "Item No."; Code[20])
         {
             Caption = 'Item No.';
-            TableRelation = LunchItem where("Vendor No." = field("Vendor No."));
+            TableRelation = "Lunch Item" where("Vendor No." = field("Vendor No."));
             
         }
         field(5; Description; Text[250])
@@ -73,7 +73,7 @@ table 50401 LunchMenu
         {
             Caption = 'Order Amount';
         }
-        field(13; "Line Type"; Enum LineType)
+        field(13; "Line Type"; Enum "Line Type")
         {
             Caption = 'Line Type';
             NotBlank = true;
@@ -87,7 +87,7 @@ table 50401 LunchMenu
         {
             FieldClass = FlowField;
             Editable = false;
-            CalcFormula = Sum(LunchOrderEntry.Quantity WHERE("Menu Item Entry No." = FIELD("Menu Item Entry No.")));
+            CalcFormula = Sum("Lunch Order Entry".Quantity WHERE("Menu Item Entry No." = FIELD("Menu Item Entry No.")));
         }
     }
 
@@ -101,7 +101,7 @@ table 50401 LunchMenu
 
     trigger OnDelete()
     var
-        LunchOrderEntery: Record LunchOrderEntry;
+        LunchOrderEntery: Record "Lunch Order Entry";
     begin
         LunchOrderEntery.SetRange(LunchOrderEntery."Menu Item Entry No.", Rec."Menu Item Entry No.");
         if not LunchOrderEntery.IsEmpty() then

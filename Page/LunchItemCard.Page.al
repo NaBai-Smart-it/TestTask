@@ -1,9 +1,9 @@
-page 50400 LunchItemCard
+page 50400 "Lunch Item Card"
 {
     Caption = ' Lunch Item Card';
     PageType = Card;
     ApplicationArea = All;
-    SourceTable = LunchItem;
+    SourceTable = "Lunch Item";
     
     layout
     {
@@ -56,16 +56,16 @@ page 50400 LunchItemCard
             {
                 Caption = 'Nutritions info (per 100g)';
 
-                field("Fats (g)";Rec."Fats (g)")
+                field("Fats (g)";Rec.Fats)
                 {
                 }
-                field("Carbs (g)";Rec."Carbs (g)")
+                field("Carbs (g)";Rec.Carbs)
                 {
                 }
-                field("Fiber (g)";Rec."Fiber (g)")
+                field("Fiber (g)";Rec.Fiber)
                 {
                 }
-                field("Protein (g)";Rec."Protein (g)")
+                field("Protein (g)";Rec.Protein)
                 {
                 }
                 field(Calories;Rec.Calories)
@@ -76,7 +76,7 @@ page 50400 LunchItemCard
         }
         area(factboxes)
         {
-            part(ItemPicture; ItemPictureFactBox)
+            part(ItemPicture; "Item Picture")
             {
                 ApplicationArea = All;
                 Caption = 'Picture';
