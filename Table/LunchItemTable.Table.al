@@ -35,6 +35,7 @@ table 50400 LunchItem
         field(6; "Info Link"; Text[250])
         {
             Caption = 'Info link';
+            ExtendedDatatype = URL;
         }
         field(8; Picture; MediaSet)
         {
@@ -78,6 +79,9 @@ table 50400 LunchItem
 
     fieldgroups
     {
+        fieldgroup(DropDown; "No.", Description, Weight)
+        {
+        }
         fieldgroup(Brick; "No.", Description, Weight, "Vendor No.", Price, Picture)
         {
         }

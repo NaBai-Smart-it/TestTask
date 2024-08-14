@@ -1,10 +1,11 @@
 page 50409 LunchVendorList 
 {
-    Caption = 'Lunch Wendor List';
+    Caption = 'Lunch Vendor List';
     PageType = List;
     UsageCategory = Lists;
     CardPageId = LunchVendorCard;
     SourceTable = Vendor;
+    SourceTableView = where (LunchVendor = const(true));
 
     layout
     {
@@ -22,8 +23,8 @@ page 50409 LunchVendorList
         }
     }
 
-    trigger OnOpenPage()
-    begin
-        Rec.SetRange(LunchVendor, true);
-    end;
+    // trigger OnOpenPage()
+    // begin
+    //     Rec.SetRange(LunchVendor, true);
+    // end;
 }

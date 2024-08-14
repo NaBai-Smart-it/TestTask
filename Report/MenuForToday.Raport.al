@@ -1,6 +1,6 @@
 report 50400 MenuForToday
 {
-    Caption = 'Menu For today';
+    Caption = 'Menu For Today';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = Word;

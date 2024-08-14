@@ -38,6 +38,7 @@ page 50403 LunchMenuCard
                 field("Item No."; Rec."Item No.")
                 {
                     Editable = IsInsertingItemLine;
+                    DrillDownPageId = LunchItemList;
                 }
                 field(Description; Rec.Description)
                 {

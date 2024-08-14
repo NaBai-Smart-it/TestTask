@@ -49,10 +49,8 @@ codeunit 50400 LunchOrderMenger
     var
         LunchOrderEnteries : Record LunchOrderEntry;
     begin
-        LunchOrderEnteries.SetCurrentKey("Entry No.");
-        LunchOrderEnteries.Ascending(false);
-        if LunchOrderEnteries.FindFirst() then
-                exit(LunchOrderEnteries."Entry No." + 1);
+        if LunchOrderEnteries.FindLast() then
+            exit(LunchOrderEnteries."Entry No." + 1);
 
         exit(1);
     end;

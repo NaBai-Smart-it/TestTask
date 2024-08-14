@@ -12,7 +12,6 @@ page 50408 ItemInfoFactBox
             {
                 Caption = 'Info link';
                 ApplicationArea = All;
-                ShowCaption = false;
             }
         }
     }

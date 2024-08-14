@@ -16,7 +16,6 @@ codeunit 50401 LunchMenuTableMenger
                 Rec."Item No." := '';
             end;
         end
-
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::LunchMenu, 'OnAfterValidateEvent', 'Line Type', true, true)]
