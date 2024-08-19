@@ -89,14 +89,14 @@ table 50400 "Lunch Item"
 
     trigger OnInsert()
     var
-        NoSeriesMgt: Codeunit "No. Series";
         LunchItemSetup: Record "Lunch Item Setup";
+        NoSeriesMgt: Codeunit "No. Series";
     begin
         if ("No." = '') then begin
             LunchItemSetup.Get();
             Rec."No." := NoSeriesMgt.GetNextNo(LunchItemSetup."No. Series Code", LunchItemSetup."Usage Date");
         end;
-            
+
     end;
 
     trigger OnDelete()

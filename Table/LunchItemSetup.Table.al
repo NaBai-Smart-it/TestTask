@@ -2,7 +2,7 @@ table 50405 "Lunch Item Setup"
 {
     Caption = 'Item Setup';
     DataClassification = CustomerContent;
-    
+
     fields
     {
         field(1; "Primary Key"; Code[10])
@@ -12,13 +12,14 @@ table 50405 "Lunch Item Setup"
         field(2; "No. Series Code"; Code[20])
         {
             Caption = 'No. Series Code';
+            TableRelation = "No. Series".Code;
         }
         field(3; "Usage Date"; Date)
         {
             Caption = 'Usage Date';
         }
     }
-    
+
     keys
     {
         key(PK; "Primary Key")

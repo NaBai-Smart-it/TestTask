@@ -1,10 +1,10 @@
 enum 50400 "Line Type"
 {
     Extensible = true;
-    
-    value(0; Blank)
+
+    value(0; " ")
     {
-        Caption = '';
+        Caption = ' ', Locked = true;
     }
     value(1; Item)
     {

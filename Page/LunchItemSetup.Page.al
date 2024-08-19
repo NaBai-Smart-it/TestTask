@@ -7,18 +7,20 @@ page 50410 "Lunch Item Setup"
     SourceTable = "Lunch Item Setup";
     InsertAllowed = false;
     DeleteAllowed = false;
-    
+
     layout
     {
         area(Content)
         {
             group(GroupName)
             {
-                field("No. Series Code";Rec."No. Series Code")
+                field("No. Series Code"; Rec."No. Series Code")
                 {
+                    ToolTip = 'Specifies the value of the No. Series Code field.';
                 }
-                field("Usage Date";Rec."Usage Date")
+                field("Usage Date"; Rec."Usage Date")
                 {
+                    ToolTip = 'Specifies the value of the Usage Date field.';
                 }
             }
         }
@@ -32,6 +34,6 @@ page 50410 "Lunch Item Setup"
             Rec.Insert();
         end;
     end;
-    
-    
+
+
 }

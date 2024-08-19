@@ -19,18 +19,20 @@ page 50412 "Nutritions Pie Chart"
             {
                 Caption = 'Calories';
                 ApplicationArea = All;
-                
+                ToolTip = 'Specifies the value of the Calories field.';
+
             }
         }
     }
 
-    trigger OnAfterGetRecord()var
+    trigger OnAfterGetRecord()
+    var
     begin
         ComposePieChart();
     end;
 
     local procedure ComposePieChart()
-        ChartBuffer : Record "Business Chart Buffer" temporary;
+        ChartBuffer: Record "Business Chart Buffer" temporary;
     var
     begin
         ChartBuffer.DeleteAll(true);

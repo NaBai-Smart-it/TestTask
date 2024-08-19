@@ -4,7 +4,7 @@ page 50407 "Lunch Item Picture"
     PageType = CardPart;
     ApplicationArea = All;
     SourceTable = "Lunch Item";
-    
+
     layout
     {
         area(content)
@@ -17,7 +17,7 @@ page 50407 "Lunch Item Picture"
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
@@ -29,7 +29,7 @@ page 50407 "Lunch Item Picture"
                 Image = Import;
                 ToolTip = 'Import a picture file.';
                 Visible = HideActions = false;
-                
+
                 trigger OnAction()
                 begin
                     ImportFromDevice();
@@ -50,12 +50,14 @@ page 50407 "Lunch Item Picture"
                 end;
             }
         }
+        // actionref
     }
 
     trigger OnAfterGetCurrRecord()
     begin
         SetEditableOnPictureActions();
     end;
+
     procedure ImportFromDevice()
     var
         FileManagement: Codeunit "File Management";
@@ -79,22 +81,22 @@ page 50407 "Lunch Item Picture"
         Clear(Rec.Picture);
         Rec.Picture.ImportFile(FileName, ClientFileName);
         Rec.Modify(true);
-        
+
         if FileManagement.DeleteServerFile(FileName) then;
     end;
 
     procedure DeleteItemPicture()
-        begin
-            Rec.TestField("No.");
+    begin
+        Rec.TestField("No.");
 
-            if not Confirm(DeleteImageQst) then
-                exit;
+        if not Confirm(DeleteImageQst) then
+            exit;
 
-            Clear(Rec.Picture);
-            Rec.Modify(true);
+        Clear(Rec.Picture);
+        Rec.Modify(true);
 
-        end;
-    
+    end;
+
     var
         HideActions: Boolean;
         DeleteExportEnabled: Boolean;
@@ -112,5 +114,5 @@ page 50407 "Lunch Item Picture"
     begin
         DeleteExportEnabled := Rec.Picture.Count <> 0;
     end;
-    
+
 }

@@ -6,7 +6,7 @@ page 50401 "Lunch Items"
     UsageCategory = Lists;
     SourceTable = "Lunch Item";
     CardPageId = "Lunch Item Card";
-    
+
     layout
     {
         area(Content)
@@ -15,20 +15,25 @@ page 50401 "Lunch Items"
             {
                 Caption = 'Items Details';
 
-                field("No.";Rec."No.")
+                field("No."; Rec."No.")
                 {
+                    ToolTip = 'Specifies the value of the Item No. field.';
                 }
-                field("Vendor No.";Rec."Vendor No.")
+                field("Vendor No."; Rec."Vendor No.")
                 {
+                    ToolTip = 'Specifies the value of the Vendor No. field.';
                 }
-                field(Description;Rec.Description)
+                field(Description; Rec.Description)
                 {
+                    ToolTip = 'Specifies the value of the Description field.';
                 }
-                field(Weight;Rec.Weight)
+                field(Weight; Rec.Weight)
                 {
+                    ToolTip = 'Specifies the value of the Weight field.';
                 }
-                field(Price;Rec.Price)
+                field(Price; Rec.Price)
                 {
+                    ToolTip = 'Specifies the value of the Price field.';
                 }
             }
         }
@@ -46,7 +51,7 @@ page 50401 "Lunch Items"
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("No.");
             }
-            part(InfoLink; "Item Info")
+            part(InfoLink; "Lunch Item Info")
             {
                 Caption = 'Info link';
                 ApplicationArea = All;
@@ -55,5 +60,5 @@ page 50401 "Lunch Items"
         }
     }
 
-    
+
 }

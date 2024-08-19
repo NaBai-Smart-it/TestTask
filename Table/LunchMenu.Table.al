@@ -26,12 +26,13 @@ table 50401 "Lunch Menu"
         {
             Caption = 'Item No.';
             TableRelation = "Lunch Item" where("Vendor No." = field("Vendor No."));
-            
+
         }
         field(5; Description; Text[250])
         {
             Caption = 'Description';
             NotBlank = true;
+            // lookup
         }
         field(6; Weight; Decimal)
         {
@@ -87,7 +88,7 @@ table 50401 "Lunch Menu"
         {
             FieldClass = FlowField;
             Editable = false;
-            CalcFormula = Sum("Lunch Order Entry".Quantity WHERE("Menu Item Entry No." = FIELD("Menu Item Entry No.")));
+            CalcFormula = sum("Lunch Order Entry".Quantity where("Menu Item Entry No." = field("Menu Item Entry No.")));
         }
     }
 

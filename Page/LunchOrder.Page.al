@@ -9,7 +9,7 @@ page 50402 LunchOrder
     SourceTableTemporary = true;
     AutoSplitKey = true;
     InsertAllowed = false;
-    
+
     layout
     {
         area(Content)
@@ -20,10 +20,14 @@ page 50402 LunchOrder
                 field("Menu Date"; MenuDate)
                 {
                     Editable = false;
+                    Caption = 'Menu Date';
+                    ToolTip = 'Specifies the value of the MenuDate field.';
                 }
                 field("Vendor No."; VendorNo)
                 {
                     TableRelation = Vendor."No." where("Lunch Vendor" = const(True));
+                    Caption = 'Vendor No.';
+                    ToolTip = 'Specifies the value of the VendorNo field.';
                     trigger OnValidate()
                     var
                     begin
@@ -37,47 +41,55 @@ page 50402 LunchOrder
                 TreeInitialState = ExpandAll;
                 IndentationColumn = Rec.Identation;
                 IndentationControls = Description;
-                field(Description;Rec.Description)
+                field(Description; Rec.Description)
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Description field.';
                 }
-                field("Line No.";Rec."Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Line No. field.';
                 }
-                field("Item No.";Rec."Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Item No. field.';
                 }
-                field(Weight;Rec.Weight)
+                field(Weight; Rec.Weight)
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Weight field.';
                 }
-                field(Price;Rec.Price)
+                field(Price; Rec.Price)
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Price field.';
                 }
-                field("Order Quantity";Rec."Order Quantity")
+                field("Order Quantity"; Rec."Order Quantity")
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = IsEditable;
+                    ToolTip = 'Specifies the value of the Order Quantity field.';
                 }
-                field("Order Amount";Rec."Order Amount")
+                field("Order Amount"; Rec."Order Amount")
                 {
                     StyleExpr = BoldTextStyle;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Order Amount field.';
                 }
-                field("Line Type";Rec."Line Type")
+                field("Line Type"; Rec."Line Type")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Line Type field.';
                 }
-                
-    
+
+
             }
         }
         area(factboxes)
@@ -95,7 +107,7 @@ page 50402 LunchOrder
                 SubPageLink = "No." = field("Item No.");
                 UpdatePropagation = Both;
             }
-            part(InfoLink; "Item Info")
+            part(InfoLink; "Lunch Item Info")
             {
                 Caption = 'Info link';
                 ApplicationArea = All;
@@ -104,28 +116,27 @@ page 50402 LunchOrder
         }
     }
 
-    var 
-        BoldTextStyle : Text;
-        IsEditable : Boolean;
+    var
+        BoldTextStyle: Text;
+        IsEditable: Boolean;
         MenuDate: Date;
         VendorNo: Code[20];
 
     trigger OnOpenPage()
     var
-        LunchOrderCodeunit : Codeunit "Lunch Order Menger";
+        LunchOrderCodeunit: Codeunit "Lunch Order Meneger";
     begin
         MenuDate := LunchOrderCodeunit.GetMaxMenuDate();
         CurrPage.ItemPicture.Page.SetHideActions();
     end;
 
-    trigger OnQueryClosePage(CloseAction: Action) : Boolean
+    trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
-        EndOfOperation: Boolean;
-        ConfirmationOrderText: Label 'Confirm Order?';
         LunchOrderEntery: Record "Lunch Order Entry";
-        LunchOrderMeneger : Codeunit "Lunch Order Menger";
+        LunchOrderMeneger: Codeunit "Lunch Order Meneger";
+        ConfirmationOrderMsg: Label 'Confirm Order?';
     begin
-        if Confirm(ConfirmationOrderText, false) then begin
+        if Confirm(ConfirmationOrderMsg, false) then begin
             Rec.SetAutoCalcFields(Rec."Prewies Quantity");
 
             if Rec.FindSet() then
@@ -144,12 +155,11 @@ page 50402 LunchOrder
                             LunchOrderEntery.Validate(LunchOrderEntery."Entry No.", LunchOrderMeneger.GetNextEntryNo());
                             AssignValues(LunchOrderEntery, Rec);
                             LunchOrderEntery.Validate(Status, LunchOrderEntery.Status::Created);
-                            if(LunchOrderEntery.Insert(true)) then
+                            if (LunchOrderEntery.Insert(true)) then
                                 Message('Record %1 inserted', Rec.Description)
                             else
                                 Message('Record %1 was NOT inserted', Rec.Description);
-                        end else begin
-
+                        end else
                             if Rec."Order Quantity" = 0 then begin
                                 if LunchOrderEntery.Delete(true) then
                                     Message('Record %1 deleted', Rec.Description)
@@ -158,12 +168,11 @@ page 50402 LunchOrder
                             end else begin
                                 AssignValues(LunchOrderEntery, Rec);
 
-                                if(LunchOrderEntery.Modify(true)) then
+                                if (LunchOrderEntery.Modify(true)) then
                                     Message('Record %1 Modified', Rec.Description)
                                 else
                                     Message('Record %1 Was NOT Modified', Rec.Description)
                             end;
-                        end;
                     end;
                 until Rec.Next() = 0;
         end;
@@ -181,22 +190,22 @@ page 50402 LunchOrder
         LunchOrderEntery.Validate("Resourse No.", UserId());
         LunchOrderEntery.Validate("Vendor No.", TempLunchOrderEnteries."Vendor No.");
     end;
-    
+
     local procedure PopulateTable()
     var
-        LunchOrderCodeunit: Codeunit "Lunch Order Menger";
+        LunchOrderCodeunit: Codeunit "Lunch Order Meneger";
     begin
         LunchOrderCodeunit.PopulateTempLunchMenuTable(VendorNo, MenuDate, Rec);
         CurrPage.Update(false);
     end;
-    
+
     trigger OnAfterGetRecord()
-    var 
-        LunchOrderCodeunit: Codeunit "Lunch Order Menger";
+    var
+        LunchOrderCodeunit: Codeunit "Lunch Order Meneger";
     begin
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
             BoldTextStyle := 'Strong'
-        else 
+        else
             BoldTextStyle := '';
 
         MenuDate := LunchOrderCodeunit.GetMaxMenuDate();

@@ -1,14 +1,12 @@
-codeunit 50400 "Lunch Order Menger"
+codeunit 50400 "Lunch Order Meneger"
 {
     procedure PopulateTempLunchMenuTable(VendorNo: Code[20]; MenuDate: Date; var Record: Record "Lunch Menu" temporary)
     var
         LunchMenuEnteries: Record "Lunch Menu";
     begin
         if not Record.IsEmpty() then
-        begin
             Record.DeleteAll(false);
-        end;
-        
+
         LunchMenuEnteries.Reset();
         LunchMenuEnteries.SetRange(LunchMenuEnteries."Menu Date", MenuDate);
         LunchMenuEnteries.SetRange(LunchMenuEnteries."Vendor No.", VendorNo);
@@ -28,7 +26,10 @@ codeunit 50400 "Lunch Order Menger"
                 Record."Menu Item Entry No." := LunchMenuEnteries."Menu Item Entry No.";
                 Record.Identation := LunchMenuEnteries.Identation;
                 Record.Insert(false);
-                
+
+            // Record.Init();
+            // Record.TransferFields(LunchMenuEnteries);
+            // Record.Insert();
             until LunchMenuEnteries.Next() = 0;
     end;
 
@@ -45,9 +46,9 @@ codeunit 50400 "Lunch Order Menger"
         exit(MaxOrderDate);
     end;
 
-    procedure GetNextEntryNo() : Integer
+    procedure GetNextEntryNo(): Integer
     var
-        LunchOrderEnteries : Record "Lunch Order Entry";
+        LunchOrderEnteries: Record "Lunch Order Entry";
     begin
         if LunchOrderEnteries.FindLast() then
             exit(LunchOrderEnteries."Entry No." + 1);

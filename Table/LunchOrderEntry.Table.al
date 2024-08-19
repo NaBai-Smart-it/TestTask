@@ -4,7 +4,7 @@ table 50403 "Lunch Order Entry"
     DataClassification = CustomerContent;
     LookupPageId = "Lunch Order Entries";
     DrillDownPageId = "Lunch Order Entries";
-    
+
     fields
     {
         field(1; "Entry No."; Integer)
@@ -56,7 +56,7 @@ table 50403 "Lunch Order Entry"
             Caption = 'Lunch Order Entry Status';
         }
     }
-    
+
     keys
     {
         key(PK; "Entry No.")

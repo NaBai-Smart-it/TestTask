@@ -7,7 +7,7 @@ page 50405 "Lunch Menu"
     SourceTable = "Lunch Menu";
     CardPageId = "Lunch Menu Card";
     AutoSplitKey = true;
-    
+
     layout
     {
         area(Content)
@@ -15,49 +15,59 @@ page 50405 "Lunch Menu"
             repeater("Lunch Menu")
             {
                 Caption = 'Lunch Menu';
-                
+
                 IndentationColumn = Rec.Identation;
                 IndentationControls = Description;
-                
-                field(Description;Rec.Description)
+
+                field(Description; Rec.Description)
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Description field.';
                 }
-                field("Line No.";Rec."Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Line No. field.';
                 }
-                field("Menu Date";Rec."Menu Date")
+                field("Menu Date"; Rec."Menu Date")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Menu Date field.';
                 }
-                field("Vendor No.";Rec."Vendor No.")
+                field("Vendor No."; Rec."Vendor No.")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Vendor No. field.';
                 }
-                field("Item No.";Rec."Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Item No. field.';
                 }
-                field(Weight;Rec.Weight)
+                field(Weight; Rec.Weight)
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Weight field.';
                 }
-                field(Price;Rec.Price)
+                field(Price; Rec.Price)
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Price field.';
                 }
-                field(Active;Rec.Active)
+                field(Active; Rec.Active)
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Active field.';
                 }
-                field("Line Type";Rec."Line Type")
+                field("Line Type"; Rec."Line Type")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Line Type field.';
                 }
-                field("Menu Item Entry No.";Rec."Menu Item Entry No.")
+                field("Menu Item Entry No."; Rec."Menu Item Entry No.")
                 {
                     StyleExpr = BoldTextStyle;
+                    ToolTip = 'Specifies the value of the Menu Item Entry No. field.';
                 }
             }
         }
@@ -75,7 +85,7 @@ page 50405 "Lunch Menu"
                 Caption = 'Nutritions Info';
                 SubPageLink = "No." = field("Item No.");
             }
-            part(InfoLink; "Item Info")
+            part(InfoLink; "Lunch Item Info")
             {
                 Caption = 'Info link';
                 ApplicationArea = All;
@@ -84,17 +94,14 @@ page 50405 "Lunch Menu"
         }
     }
 
-    var 
-        BoldTextStyle : Text;
-        isEditable : Boolean;
+    var
+        BoldTextStyle: Text;
 
     trigger OnAfterGetRecord()
     begin
         if Rec."Line Type" = Rec."Line Type"::"Group Heading" then
-        begin
-            BoldTextStyle := 'Strong';
-            isEditable := false;
-        end else 
+            BoldTextStyle := 'Strong'
+            else
             BoldTextStyle := '';
     end;
 

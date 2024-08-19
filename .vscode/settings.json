@@ -1,3 +1,10 @@
 {
-    "xliffSync.baseFile": "TestTask.g.xlf"
+    "xliffSync.baseFile": "TestTask.g.xlf",
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+
+    
+
+        "${CodeCop}"
+    ]
 }
